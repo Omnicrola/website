@@ -4,6 +4,7 @@ let modules = [
     'modules/Ajax',
     'modules/NavigationCache',
     'modules/Navigation',
+    'modules/Template'
 ];
 ModuleLoader.loadModules(modules)
     .then(() => {
