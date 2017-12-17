@@ -28,14 +28,22 @@ let Navigation = ((contentTarget) => {
         window.history.pushState(state, '', baseUrl + '#' + contentUrl);
     }
 
+    function _recursiveHrefSearch(node) {
+        if (node.href) {
+            return node.href;
+        } else {
+            return _recursiveHrefSearch(node.parentElement);
+        }
+    }
+
     function _onAnchorClick(event) {
         event.preventDefault();
-        let target = event.target;
-        let subUrl = event.target.href.split('#')[1];
+        let linkUrl = _recursiveHrefSearch(event.target);
+        let subUrl = linkUrl.split('#')[1];
 
         NavigationCache.unload(_currentUrl);
 
-        _clearContent(target);
+        _clearContent();
         _setUrlBar(subUrl);
         _retrieveContent(subUrl);
     }

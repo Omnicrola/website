@@ -9,7 +9,4 @@ ModuleLoader.loadModules(modules)
     .then(() => {
         console.log('modules loaded!');
         return Navigation.loadDefaultContent('main.html');
-    })
-    .then(() => {
-        BoxSizing.squareUp();
     });

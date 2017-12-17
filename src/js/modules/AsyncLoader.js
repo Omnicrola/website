@@ -7,12 +7,10 @@ let ModuleLoader = ((scriptContainer, srcPrefix) => {
 
         return new Promise((resolve, reject) => {
             scriptElement.onload = () => {
-                console.log('finished load: ' + scriptElement.src);
                 resolve(scriptElement);
             };
             scriptElement.onreadystatechange = () => {
                 if (this.readyState === 'loaded') {
-                    console.log('ready state' + scriptElement.src);
                     resolve();
                 }
             }

@@ -6,17 +6,26 @@ let NavigationCache = (() => {
         element.src = 'js/pages/' + url + '.js';
         document.head.appendChild(element);
         return new Promise((resolve, reject) => {
-            element.onloadend = () => {
+            element.onload = () => {
                 resolve(url);
-            }
-        })
+            };
+            element.onreadystatechange = () => {
+                if (this.readyState === 'loaded') {
+                    resolve();
+                }
+            };
+        });
+    }
+
+    function _runLoadTrigger(url) {
+        if (cache[url].onLoad) {
+            cache[url].onLoad();
+        }
     }
 
     function _load(url) {
         if (cache[url]) {
-            if (cache[url].onLoad) {
-                cache[url].onLoad();
-            }
+            _runLoadTrigger(url);
             return Promise.resolve(url);
         } else {
             window.module = {};
@@ -25,7 +34,8 @@ let NavigationCache = (() => {
                     if (!window.module || !window.module.triggers) {
                         throw new Error('Module "' + url + '" has no load triggers');
                     }
-                    cache.push(window.module.triggers);
+                    cache[url] = window.module.triggers;
+                    _runLoadTrigger(url);
                     window.module = {};
                 });
         }

@@ -20,6 +20,7 @@ window.module.triggers = (() => {
             transitionInterval: 3000,
             startDelay: 300,
         });
+        BoxSizing.squareUp();
     }
 
     function _onUnload() {
