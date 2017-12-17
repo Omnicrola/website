@@ -1,0 +1,64 @@
+#resume {
+    font-size: 1.0em;
+}
+
+.pageblock, .personal {
+    padding: 1em;
+    background: #ddf0f9;
+    margin-bottom: 10px;
+    border-right: 10px solid #1c83e2;
+}
+
+.mugshot {
+    width: 150px;
+    height: 195px;
+    border: 1px solid #444;
+    float: right;
+    clear: right;
+}
+
+.title, .historyBlock {
+    padding: 3px;
+    margin: 3px;
+    background-color: #FFF;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+}
+
+.skills li {: 1.2 em;
+    background: #b1d5f7;
+    text-decoration: none;
+    margin-top: 3px;
+    padding: 2px;
+    width: 50%;
+    list-style: none;
+    margin-left: 0;
+}
+
+.skills li:hover {
+    background: #FFF;
+}
+
+.historyBlock {
+    background-color: #b1d5f7;
+    list-style: none;
+    padding: 5px;
+}
+
+@media only screen and (max-width: 480px) {
+    h1, h2 {
+        margin: 0;
+    }
+
+    p {
+        text-indent: .5em;
+    }
+
+    .mugshot {
+        clear: both;
+        margin: auto;
+        float: none;
+        margin-bottom: 10px;
+    }
+}
