@@ -1,25 +1,15 @@
 let NavigationCache = (() => {
     let cache = [];
 
-    function _waitUntilLoaded(url) {
-        if (window.module && window.module.triggers) {
-            cache[url] = window.module.triggers;
-            delete window.module.triggers;
-            _load(url);
-        } else {
-            setTimeout(() => {
-                _waitUntilLoaded(url);
-            });
-        }
-    }
-
     function _performLoad(url) {
-        window.module={};
         let element = document.createElement('script');
         element.src = 'js/pages/' + url + '.js';
-        console.log('LOAD: ' + element.src);
         document.head.appendChild(element);
-        _waitUntilLoaded(url);
+        return new Promise((resolve, reject) => {
+            element.onloadend = () => {
+                resolve(url);
+            }
+        })
     }
 
     function _load(url) {
@@ -27,8 +17,17 @@ let NavigationCache = (() => {
             if (cache[url].onLoad) {
                 cache[url].onLoad();
             }
+            return Promise.resolve(url);
         } else {
-            _performLoad(url);
+            window.module = {};
+            return _performLoad(url)
+                .then(() => {
+                    if (!window.module || !window.module.triggers) {
+                        throw new Error('Module "' + url + '" has no load triggers');
+                    }
+                    cache.push(window.module.triggers);
+                    window.module = {};
+                });
         }
     }
 

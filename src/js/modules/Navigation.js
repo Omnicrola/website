@@ -9,15 +9,17 @@ let Navigation = ((contentTarget) => {
     }
 
     function _retrieveContent(url) {
-        Ajax.get(url, (response) => {
-            _contentContainer.classList.remove('loading');
-            _contentContainer.innerHTML = response;
-            document.dispatchEvent(new Event('ajax-load'));
+        return Ajax.get(url)
+            .then((content) => {
+                _contentContainer.classList.remove('loading');
+                _contentContainer.innerHTML = content;
 
-            _currentUrl = url;
-            NavigationCache.load(url);
-            _initializeNavigation(_contentContainer);
-        });
+                _currentUrl = url;
+                return NavigationCache.load(url);
+            })
+            .then(() => {
+                _initializeNavigation(_contentContainer);
+            });
     }
 
     function _setUrlBar(contentUrl) {
@@ -28,8 +30,8 @@ let Navigation = ((contentTarget) => {
 
     function _onAnchorClick(event) {
         event.preventDefault();
-        let target = event.srcElement.target;
-        let subUrl = event.srcElement.href.split('#')[1];
+        let target = event.target;
+        let subUrl = event.target.href.split('#')[1];
 
         NavigationCache.unload(_currentUrl);
 
@@ -41,7 +43,7 @@ let Navigation = ((contentTarget) => {
     function _loadContent(url) {
         _clearContent();
         _setUrlBar(url);
-        _retrieveContent(url);
+        return _retrieveContent(url);
     }
 
 
@@ -63,10 +65,10 @@ let Navigation = ((contentTarget) => {
         if (subContentIsSpecified) {
             let subContentUrl = urlFragments[1];
             console.log('loading sub-content : ' + subContentUrl);
-            _loadContent(subContentUrl);
+            return _loadContent(subContentUrl);
         } else {
             console.log('loading default sub-content');
-            _loadContent(defaultUrl);
+            return _loadContent(defaultUrl);
         }
     }
 
