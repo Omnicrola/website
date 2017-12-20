@@ -1,20 +1,27 @@
 window.module.triggers = (() => {
-    let skins = [{
-        title: 'League of Legends',
-        screenshotUrl: 'http://via.placeholder.com/300x250?text=Skin',
-        skinFileUrl: '#'
-    }];
+
+    function _compareSkins(a, b) {
+        if (a.title < b.title) return -1;
+        if (a.title > b.title) return 1;
+        return 0;
+    }
 
     function _showTiles() {
         let template = document.querySelector('#tile-template');
         let containerNode = template.parentNode;
         containerNode.removeChild(template);
 
-        for (let i = 0; i < skins.length; i++) {
-            let tile = template.cloneNode(true);
-            Template.apply(tile, skins[i]);
-            containerNode.appendChild(tile);
-        }
+        Ajax.get('data/smartlaunch-data.json')
+            .then(json => {
+                let skins = JSON.parse(json)
+                    .sort(_compareSkins);
+                for (let i = 0; i < skins.length; i++) {
+                    let tile = template.cloneNode(true);
+                    Template.apply(tile, skins[i]);
+                    containerNode.appendChild(tile);
+                }
+
+            });
     }
 
     function _onLoad() {
