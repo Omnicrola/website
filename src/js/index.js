@@ -1,6 +1,5 @@
 let modules = [
     'modules/Slideshow',
-    'modules/BoxSizing',
     'modules/Ajax',
     'modules/NavigationCache',
     'modules/Navigation',

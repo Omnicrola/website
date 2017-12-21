@@ -8,8 +8,6 @@ window.module.triggers = (() => {
     }
 
     function _onLoad() {
-        BoxSizing.squareUp();
-
         _gallerySlideshow = Slideshow.create({
             targetSelector: '#slides-gallery',
             autoAdvance: false

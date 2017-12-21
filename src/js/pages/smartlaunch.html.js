@@ -26,7 +26,6 @@ window.module.triggers = (() => {
 
     function _onLoad() {
         _showTiles();
-        BoxSizing.squareUp();
     }
 
     function _onUnload() {
