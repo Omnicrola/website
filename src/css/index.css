@@ -1,6 +1,7 @@
 body {
     margin: 0;
     padding: 0;
+    padding-top: 100px;
     font-family: 'Signika', sans-serif;
     color: #444;
     background-image: url('../images/bg-gradient.png');
@@ -33,13 +34,24 @@ a:hover, app-link:hover {
 }
 
 header {
-    height: 50px;
-    border-bottom: 2px solid grey;
+    height: 100px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: white;
+    z-index: 1000;
 }
 
 header h1 {
     margin: 0;
     padding: 0;
+    border-bottom: 2px solid grey;
+}
+
+header .header-center {
+    margin: auto;
+    max-width:1000px;
 }
 
 #menu {
@@ -95,6 +107,15 @@ footer {
     border-top: 2px solid grey;
     margin-top: 10px;
     padding: 10px 0 20px 0;
+}
+
+footer a {
+    color: black;
+    text-decoration: underline;
+}
+
+footer a:hover {
+    color: black;
 }
 
 .loading {
