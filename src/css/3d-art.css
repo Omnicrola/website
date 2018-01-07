@@ -8,10 +8,12 @@
     padding: 10px;
     display: inline-block;
     width: 9%;
+    background-color: #fff8be;
     color: #242424;
-    min-height: 200px;
+    height: 100%;
     vertical-align: top;
     box-sizing: border-box;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
 }
 
 #gallery button {
@@ -34,12 +36,20 @@
     outline: none;
 }
 
+#gallery .slides {
+    position: relative;
+    height: 600px;
+}
+
 #gallery .image-slideshow {
     width: 80%;
+    padding-bottom: 0;
+    height: 600px;
     display: inline-block;
     box-sizing: border-box;
     background: black;
     border: 5px solid black;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
 }
 
 #gallery .title {
