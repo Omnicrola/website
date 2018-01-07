@@ -25,7 +25,12 @@
 }
 
 .game .description h3 {
+    font-size: 1.5em;
     margin-top: 0;
+}
+
+.game .description .updated {
+    margin-bottom: 10px;
 }
 
 .game .description .links {
@@ -60,4 +65,12 @@
 
 .game .description .links .github img {
     height: 40px;
+}
+
+.game .description .tags .tag {
+    display: inline-block;
+    padding: 4px 8px;
+    background: #b1d5f7;
+    margin: 2px;
+    border-radius: 4px;
 }

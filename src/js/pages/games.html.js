@@ -1,23 +1,4 @@
 window.module.triggers = (() => {
-
-
-    let _customTemplateFunctions = {
-        screenshots: (screenshots) => {
-            let parsedHtml = '';
-            for (let i = 0; i < screenshots.length; i++) {
-                parsedHtml += `<img class="responsive slide" src="images/games/${screenshots[i]}"/>\n`;
-            }
-            return parsedHtml;
-        },
-        description: (descriptions) => {
-            let parsedHtml = '';
-            for (let i = 0; i < descriptions.length; i++) {
-                parsedHtml += `<p>${descriptions[i]}</p>`;
-            }
-            return parsedHtml;
-        }
-    };
-
     function _loadGamesFromJson() {
         let template = document.querySelector('#game-template');
         let containerNode = template.parentNode;
@@ -30,7 +11,7 @@ window.module.triggers = (() => {
                 for (let i = 0; i < games.length; i++) {
                     let gameElement = template.cloneNode(true);
                     let singleGameData = games[i];
-                    Template.apply(gameElement, singleGameData, _customTemplateFunctions);
+                    Template.apply(gameElement, singleGameData);
 
                     if (!singleGameData['play-link']) {
                         let playLink = gameElement.querySelector('.play');
