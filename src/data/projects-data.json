@@ -1,0 +1,101 @@
+[
+  {
+    "title": "Universal Player",
+    "updated": "Nov 2017",
+    "screenshots": [
+      "universal-player.png"
+    ],
+    "description": [
+      "A game inspired by Universal Paperclips. This game seeks to entice the player into building a game that makes other people play it. The game attempts to employ commonly used psychological techniques to encourage the player to add those same techniques to their 'game'. The end result being that the entire world economy is subsumed in service to enabling the population of the earth to do nothing but play the game that the player has built."
+    ],
+    "tags": [
+      "Javascript",
+      "web",
+      "game",
+      "psychology",
+      "html"
+    ],
+    "github": "https://github.com/Omnicrola/universal-player",
+    "play-link": "https://omnicrola.github.io/universal-player/"
+  },
+  {
+    "title": "Space Rocks",
+    "updated": "2015 - 2016",
+    "screenshots": [
+      "space-rocks.png"
+    ],
+    "description": [
+      "Space Rocks is an Asteroids homage written in vanilla JS. It was written as an exercise for learning TDD in a      javascript environment, and to explore how a game engine works in a browser. No node packages where used for     the game itself, though many where employed to enable the writing of tests, and for 'compiling' the code      from multiple module files into a single JS file. ",
+      "The game engine is a simple loop based on setInterval. The main loop calls a series of 'subsystems' that in      turn handle things like player input, collision detection, moving entities (asteroids), and trigger audio      and visual FX. Communication is an event-driven system to allow for loose coupling between the different Subsystems."
+    ],
+    "tags": [
+      "javascript",
+      "html",
+      "css",
+      "game",
+      "arcade"
+    ],
+    "github-link": "https://github.com/Omnicrola/SpaceRocks",
+    "play-link": "https://omnicrola.github.io/SpaceRocks/"
+  },
+  {
+    "title": "Phaser Deck",
+    "updated": "Nov 2017",
+    "screenshots": [
+      "phaser-deck-01.png",
+      "phaser-deck-02.png"
+    ],
+    "description": [
+      "A simple game in VR designed to mimic the target practice arena found in Star Trek : The Next Generation (<a href=\"https://www.youtube.com/watch?v=tR97q35_3nw\">example here</a>). The goal is to hit as many of the floating targets in the given time. Difficulty can be adjusted by the player, which will increase the frequency of the targets as well as their speed."
+    ],
+    "tags": [
+      "VR",
+      "Unity",
+      "Star Trek",
+      "C#",
+      "FPS",
+      "game"
+    ],
+    "github-link": "https://github.com/Omnicrola/PhaserDeck"
+  },
+  {
+    "title": "Planet Buster",
+    "updated": "July 2017",
+    "screenshots": [
+      "planetbuster-01.png",
+      "planetbuster-banner.png"
+    ],
+    "description": [
+      "A Unity-based 2D game designed for mobile. This is a simple match-3 game using the icons of planets. Certain planets have 'power gems' which will power up the player's launcher, which can then be use to fire a giant laser that obliterates planets for a short time."
+    ],
+    "tags": [
+      "Unity",
+      "mobile",
+      "Android",
+      "C#",
+      "game",
+      "match-3",
+      "2D"
+    ],
+    "github-link": "https://github.com/Omnicrola/PlanetBuster"
+  },
+  {
+    "title": "Voxel Cascade",
+    "updated": "April 2016",
+    "screenshots": [
+      "voxel-rts-01.jpg"
+    ],
+    "description": [
+      "An RTS game that uses voxels to allow the players to modify the terrain as they play. The game is a custom engine built using the LWJGL."
+    ],
+    "tags": [
+      "Java",
+      "hlsl",
+      "LWJGL",
+      "RTS",
+      "voxels",
+      "game"
+    ],
+    "github-link": "https://github.com/Omnicrola/voxel-cascade"
+  }
+]

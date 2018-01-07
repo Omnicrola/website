@@ -8,11 +8,12 @@
 }
 
 .game .game-screenshot {
-    float: left;
     width: 300px;
     box-sizing: border-box;
     margin-right: 20px;
+    vertical-align: top;
     padding: 5px;
+    height: 200px;
     border: 3px solid white;
     box-shadow: 0 0 10px rgba(0, 0, 0, .2);
     border-radius: 5px;
@@ -32,7 +33,6 @@
 }
 
 .game .description .links .play {
-    border: none;
     display: inline-block;
     position: absolute;
     top: 0;
@@ -42,7 +42,15 @@
     font-size: 1.2em;
     font-weight: bold;
     color: #292929;
+    border: solid transparent 2px;
     background: #92d89b;
+    transition: 0.5s;
+}
+
+.game .description .links .play:hover {
+    background: white;
+    border: 2px solid #92d89b;
+    transition: 0.5s;
 }
 
 .game .description .links .github {

@@ -1,59 +1,20 @@
 <link rel="stylesheet" href="css/games.css">
 
 <h2>Games</h2>
-<div class="game">
-    <div class="game-screenshot bg-black">
-        <img width="100%" src="images/games/space-rocks.png"/>
+<div class="game" id="game-template">
+    <div class="game-screenshot image-slideshow bg-black col-4">
+        {{screenshots}}
     </div>
-    <div class="description">
-        <h3>Space Rocks</h3>
-        <div class="updated">2015 - 2016</div>
-        <p>Space Rocks is an Asteroids homage written in vanilla JS. It was written as an exercise for learning TDD in a
-            javascript environment, and to explore how a game engine works in a browser. No node packages where used for
-            the game itself, though many where employed to enable the writing of tests, and for 'compiling' the code
-            from multiple module files into a single JS file. </p>
-        <p>The game engine is a simple loop based on setInterval. The main loop calls a series of 'subsystems' that in
-            turn handle things like player input, collision detection, moving entities (asteroids), and trigger audio
-            and visual FX. Communication is an event-driven system to allow for loose coupling between the different
-            Subsystems.</p>
+    <div class="description col-7">
+        <h3>{{title}}</h3>
+        <div class="updated">{{updated}}</div>
+        <div>{{description}}</div>
         <div class="links">
-            <a href="https://github.com/Omnicrola/SpaceRocks" class="github"><img
-                    src="images/GitHub-Mark-64px.png"/></a>
-            <a href="https://omnicrola.github.io/SpaceRocks/" class="play"><i class="fa fa-play"></i> Play</a>
+            <a href="{{github-link}}" class="github">
+                <img src="images/GitHub-Mark-64px.png"/>
+            </a>
+            <a href="{{play-link}}" class="play"><i class="fa fa-play"></i> Play</a>
         </div>
     </div>
 </div>
-<div class="game">
-    <div class="game-screenshot">
-        <img width="100%" src="http://via.placeholder.com/400x350?text=Game"/>
-    </div>
-    <div class="description">
-        <h3>Phaser Arena</h3>
-        <div class="updated">2016-01-11</div>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam dignissim, libero a consectetur facilisis,
-            lectus
-            mauris lacinia lectus, nec tristique ligula nisl nec ex. Suspendisse non dolor felis. Morbi hendrerit, augue
-            sit
-            amet varius faucibus, justo eros porta arcu, in pellentesque velit erat a arcu. Nam eget aliquam odio. Etiam
-            vitae posuere nisl. Vivamus eleifend condimentum elit, et rhoncus urna volutpat in. Curabitur eros libero,
-            ullamcorper in vestibulum non, varius a nisi. Sed viverra ornare tincidunt. Mauris condimentum nulla quam,
-            sodales fringilla metus posuere volutpat. Sed in vehicula lorem. Sed ut bibendum nulla.</p>
-    </div>
-</div>
-<div class="game">
-    <div class="game-screenshot">
-        <img width="100%" src="http://via.placeholder.com/400x350?text=Game"/>
-    </div>
-    <div class="description">
-        <h3>Cosmic Pong</h3>
-        <div class="updated">2016-01-11</div>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam dignissim, libero a consectetur facilisis,
-            lectus
-            mauris lacinia lectus, nec tristique ligula nisl nec ex. Suspendisse non dolor felis. Morbi hendrerit, augue
-            sit
-            amet varius faucibus, justo eros porta arcu, in pellentesque velit erat a arcu. Nam eget aliquam odio. Etiam
-            vitae posuere nisl. Vivamus eleifend condimentum elit, et rhoncus urna volutpat in. Curabitur eros libero,
-            ullamcorper in vestibulum non, varius a nisi. Sed viverra ornare tincidunt. Mauris condimentum nulla quam,
-            sodales fringilla metus posuere volutpat. Sed in vehicula lorem. Sed ut bibendum nulla.</p>
-    </div>
-</div>
+

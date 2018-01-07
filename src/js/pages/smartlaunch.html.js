@@ -20,7 +20,6 @@ window.module.triggers = (() => {
                     Template.apply(tile, skins[i]);
                     containerNode.appendChild(tile);
                 }
-
             });
     }
 
