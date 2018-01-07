@@ -4,11 +4,12 @@ body {
     font-family: 'Signika', sans-serif;
     color: #444;
     background-image: url('../images/bg-gradient.png');
+    background-attachment: fixed;
 }
 
 #app {
     background: url('../images/hex-background.png') no-repeat left bottom;
-    height: 100vh;
+    background-attachment: fixed;
 }
 
 #content-wrapper {
@@ -111,7 +112,8 @@ footer {
     display: grid;
     grid-template-columns: 50% 50%;
 }
-@media (max-width:500px){
+
+@media (max-width: 500px) {
     .project-tiles {
         grid-template-columns: 100%;
     }

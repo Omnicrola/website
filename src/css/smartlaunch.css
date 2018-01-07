@@ -48,8 +48,7 @@
 
 .smartlaunch .links a:hover {
     text-decoration: none;
-    color: grey;
-    background-color: #93FFA4;
+    background:linear-gradient(#71c180,#93FFA4,#51915d);
     transition-duration: .5s;
     transition-property: background, color;
 }
