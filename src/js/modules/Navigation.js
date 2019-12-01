@@ -58,7 +58,7 @@ let Navigation = ((contentTarget) => {
     function _initializeNavigation(element) {
         element.querySelectorAll('a')
             .forEach(element => {
-                if (element.attributes.local && element.attributes.local.value) {
+                if (element.attributes['data-local'] && element.attributes['data-local'].value) {
                     element.onclick = _onAnchorClick;
                 }
             });

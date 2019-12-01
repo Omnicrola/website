@@ -1,4 +1,4 @@
-.game {
+.project {
     background: #EFEFEF;
     padding: 25px;
     position: relative;
@@ -7,7 +7,7 @@
     box-shadow: 5px 5px 5px rgba(0, 0, 0, .05);
 }
 
-.game .game-screenshot {
+.project .project-screenshot {
     width: 300px;
     box-sizing: border-box;
     margin-right: 20px;
@@ -19,28 +19,25 @@
     border-radius: 5px;
 }
 
-.game .description {
+.project .description {
     padding-left: 10px;
     box-sizing: border-box;
 }
 
-.game .description h3 {
+.project .description h3 {
     font-size: 1.5em;
     margin-top: 0;
 }
 
-.game .description .updated {
+.project .description .updated {
     margin-bottom: 10px;
 }
 
-.game .description .links {
-    position: relative;
+.project .description .links {
+    display: flex;
 }
 
-.game .description .links .play {
-    display: inline-block;
-    position: absolute;
-    top: 0;
+.project .description .links .play {
     margin: 5px;
     padding: 10px 20px;
     border-radius: 10px;
@@ -52,23 +49,39 @@
     transition: 0.5s;
 }
 
-.game .description .links .play:hover {
+.project .description .links .play:hover {
     background: white;
     border: 2px solid #92d89b;
     transition: 0.5s;
 }
 
-.game .description .links .github {
+.project .description .links .github {
+    background: #b1d5f7;
+    border-radius: 10px;
     margin: 5px;
-    display: inline-block;
+    padding: 10px;
+    color: black;
+    display: flex;
+    align-items: center;
+    border: 2px solid transparent;
 }
 
-.game .description .links .github img {
-    height: 40px;
+.project .description .links .github:hover {
+    background: white;
+    border: 2px solid #b1d5f7;
+    transition: 0.5s;
 }
 
-.game .description .tags .tag {
-    display: inline-block;
+.project .description .links .github img {
+    height: 24px;
+    margin-left: 10px;
+}
+
+.project .description .tags {
+    display: flex;
+}
+
+.project .description .tags .tag {
     padding: 4px 8px;
     background: #b1d5f7;
     margin: 2px;

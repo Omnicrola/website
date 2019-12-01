@@ -1,9 +1,9 @@
-<link rel="stylesheet" href="css/games.css">
+<link rel="stylesheet" href="css/projects.css">
 
-<h2>Games</h2>
-<div class="game" id="game-template">
-    <div class="game-screenshot image-slideshow bg-black col-4" template-for="screenshots as screenshot">
-        <img class="responsive slide" src="images/games/{{screenshot}}"/>
+<h2>Projects</h2>
+<div class="project" id="project-template">
+    <div class="project-screenshot image-slideshow bg-black col-4" template-for="screenshots as screenshot">
+        <img class="responsive slide" src="images/projects/{{screenshot}}"/>
     </div>
     <div class="description col-7">
         <h3>{{title}}</h3>
@@ -14,6 +14,7 @@
         <div template-for="description as paragraph"><p>{{paragraph}}</p></div>
         <div class="links">
             <a href="{{github-link}}" class="github">
+                View on GitHub
                 <img src="images/GitHub-Mark-64px.png"/>
             </a>
             <a href="{{play-link}}" class="play"><i class="fa fa-play"></i> Play</a>

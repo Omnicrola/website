@@ -1,7 +1,7 @@
 window.module.triggers = (() => {
     function _onLoad() {
         Slideshow.create({
-            targetSelector: '#slides-games',
+            targetSelector: '#slides-projects',
             transitionInterval: 3000,
             startDelay: 0,
         });
@@ -23,7 +23,7 @@ window.module.triggers = (() => {
     }
 
     function _onUnload() {
-        Slideshow.destroy('#slides-games');
+        Slideshow.destroy('#slides-projects');
         Slideshow.destroy('#slides-images');
         Slideshow.destroy('#slides-resume');
         Slideshow.destroy('#slides-smartlaunch');

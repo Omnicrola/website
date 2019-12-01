@@ -1,28 +1,28 @@
 window.module.triggers = (() => {
-    function _loadGamesFromJson() {
-        let template = document.querySelector('#game-template');
+    function _loadProjectsFromJson() {
+        let template = document.querySelector('#project-template');
         let containerNode = template.parentNode;
         containerNode.removeChild(template);
 
         return Ajax.get('data/projects-data.json')
             .then(json => {
-                let games = JSON.parse(json);
+                let projects = JSON.parse(json);
                 let slideshowSelectors = [];
-                for (let i = 0; i < games.length; i++) {
-                    let gameElement = template.cloneNode(true);
-                    let singleGameData = games[i];
-                    Template.apply(gameElement, singleGameData);
+                for (let i = 0; i < projects.length; i++) {
+                    let projectElement = template.cloneNode(true);
+                    let singleProjectData = projects[i];
+                    Template.apply(projectElement, singleProjectData);
 
-                    if (!singleGameData['play-link']) {
-                        let playLink = gameElement.querySelector('.play');
+                    if (!singleProjectData['play-link']) {
+                        let playLink = projectElement.querySelector('.play');
                         playLink.parentNode.removeChild(playLink);
                     }
-                    let gameId = 'game-' + singleGameData.title.toLocaleLowerCase().replace(' ', '-');
-                    gameElement.id = gameId;
-                    containerNode.appendChild(gameElement);
+                    let projectId = 'project-' + singleProjectData.title.toLocaleLowerCase().replace(' ', '-');
+                    projectElement.id = projectId;
+                    containerNode.appendChild(projectElement);
 
-                    if (singleGameData.screenshots.length > 1) {
-                        let slideshowSelector = '#' + gameId + ' .image-slideshow';
+                    if (singleProjectData.screenshots.length > 1) {
+                        let slideshowSelector = '#' + projectId + ' .image-slideshow';
                         Slideshow.create({
                             targetSelector: slideshowSelector,
                             transitionInterval: 3000,
@@ -38,7 +38,7 @@ window.module.triggers = (() => {
     let slideshowSelectors = [];
 
     function _onLoad() {
-        _loadGamesFromJson()
+        _loadProjectsFromJson()
             .then((newSlideshowSelectors) => {
                 slideshowSelectors = newSlideshowSelectors;
             });
