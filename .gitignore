@@ -1,4 +1,4 @@
 .idea/
 node_modules
 downloads/
-data/skins/*
+src/data/skins/*
