@@ -55,7 +55,7 @@
     transition: 0.5s;
 }
 
-.project .description .links .github {
+.project .description .links .link {
     background: #b1d5f7;
     border-radius: 10px;
     margin: 5px;
@@ -66,14 +66,24 @@
     border: 2px solid transparent;
 }
 
-.project .description .links .github:hover {
+.project .description .links .link:hover {
     background: white;
     border: 2px solid #b1d5f7;
     transition: 0.5s;
 }
 
-.project .description .links .github img {
+.link.github img {
     height: 24px;
+    margin-left: 10px;
+}
+.project .description .links .link.youtube {
+    background-image: url('../images/youtube_icon.png');
+    background-repeat: no-repeat;
+    background-size: 64px;
+    background-position-x: right;
+    background-position-y: center;
+    padding-right: 64px;
+    height: 32px;
     margin-left: 10px;
 }
 

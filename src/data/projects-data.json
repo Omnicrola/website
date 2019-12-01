@@ -1,26 +1,72 @@
 [
   {
-    "title": "Universal Player",
-    "updated": "Nov 2017",
+    "title": "The Interior",
+    "updated": "2018-11-01",
     "screenshots": [
-      "universal-player.png"
+      "the-interior-corridor-fight.png",
+      "the-interior-main-menu-2.png"
     ],
     "description": [
-      "A game inspired by Universal Paperclips. This game seeks to entice the player into building a game that makes other people play it. The game attempts to employ commonly used psychological techniques to encourage the player to add those same techniques to their 'game'. The end result being that the entire world economy is subsumed in service to enabling the population of the earth to do nothing but play the game that the player has built."
+      "A top-down RPG inspired by Diablo-esque games, in a sci-fi setting."
     ],
     "tags": [
-      "Javascript",
-      "web",
+      "RPG",
       "game",
-      "psychology",
-      "html"
+      "Unity",
+      "C#"
     ],
-    "github": "https://github.com/Omnicrola/universal-player",
-    "play-link": "https://omnicrola.github.io/universal-player/"
+    "youtube-link": "https://www.youtube.com/watch?v=UtZqdPrzsiE",
+    "github": "https://github.com/Omnicrola/just-simple-weather"
+  },
+  {
+    "title": "Just Simple Weather",
+    "updated": "2018-05-01",
+    "screenshots": [
+    ],
+    "description": [
+      "A very simple Android app for displaying the basic weather information : temperature and short description. The main motivation here being to have as simple an application as possible with NO ADS."
+    ],
+    "tags": [
+      "Android",
+      "Java",
+      "mobile"
+    ],
+    "github": "https://github.com/Omnicrola/just-simple-weather"
+  },
+  {
+    "title": "Just Simple Signal",
+    "updated": "2018-05-01",
+    "screenshots": [
+    ],
+    "description": [
+      "A very simple Android app for displaying a real-time graph of the cell signal strength in decibels"
+    ],
+    "tags": [
+      "Android",
+      "Java",
+      "mobile"
+    ],
+    "github": "https://github.com/Omnicrola/just-simple-signal"
+  },
+  {
+    "title": "Cosmic Pong",
+    "updated": "2017-10-01",
+    "screenshots": [
+    ],
+    "description": [
+      "A quick VR experiment to recreate Ping Pong in a VR environment"
+    ],
+    "tags": [
+      "VR",
+      "Unity",
+      "C#",
+      "game"
+    ],
+    "github": "https://github.com/Omnicrola/cosmic-pong"
   },
   {
     "title": "Space Rocks",
-    "updated": "2015 - 2016",
+    "updated": "2017-12-01",
     "screenshots": [
       "space-rocks.png"
     ],
@@ -40,7 +86,7 @@
   },
   {
     "title": "Phaser Deck",
-    "updated": "Nov 2017",
+    "updated": "2017-11-01",
     "screenshots": [
       "phaser-deck-01.png",
       "phaser-deck-02.png"
@@ -60,7 +106,7 @@
   },
   {
     "title": "Planet Buster",
-    "updated": "July 2017",
+    "updated": "2017-06-01",
     "screenshots": [
       "planetbuster-01.png",
       "planetbuster-banner.png"
@@ -81,7 +127,7 @@
   },
   {
     "title": "Voxel Cascade",
-    "updated": "April 2016",
+    "updated": "2016-04-01",
     "screenshots": [
       "voxel-rts-01.jpg"
     ],
