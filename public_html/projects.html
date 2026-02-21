@@ -1,6 +1,11 @@
 <link rel="stylesheet" href="css/projects.css">
 
 <h2>Projects</h2>
+<div id="tag-filter">
+    <span class="tag-filter-label">Filter by tag:</span>
+    <div id="tag-filter-buttons"></div>
+    <div id="project-count"></div>
+</div>
 <div class="project" id="project-template">
     <div class="project-screenshot image-slideshow bg-black col-4" template-for="screenshots as screenshot">
         <img class="responsive slide" src="images/projects/{{screenshot}}"/>

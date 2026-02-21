@@ -11,11 +11,6 @@ window.module.triggers = (() => {
             startDelay: 100,
         });
         Slideshow.create({
-            targetSelector: '#slides-resume',
-            transitionInterval: 3000,
-            startDelay: 200,
-        });
-        Slideshow.create({
             targetSelector: '#slides-smartlaunch',
             transitionInterval: 3000,
             startDelay: 300,
@@ -25,7 +20,6 @@ window.module.triggers = (() => {
     function _onUnload() {
         Slideshow.destroy('#slides-projects');
         Slideshow.destroy('#slides-images');
-        Slideshow.destroy('#slides-resume');
         Slideshow.destroy('#slides-smartlaunch');
     }
 

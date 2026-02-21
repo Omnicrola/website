@@ -41,6 +41,7 @@ header {
     width: 100%;
     background: white;
     z-index: 1000;
+    box-shadow: rgb(140, 140, 140) 0 5px 5px;
 }
 
 header h1 {

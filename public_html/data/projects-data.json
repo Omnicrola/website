@@ -10,8 +10,7 @@
       "A top-down RPG inspired by Diablo-esque games, in a sci-fi setting."
     ],
     "tags": [
-      "RPG",
-      "game",
+      "Games",
       "Unity",
       "C#"
     ],
@@ -28,8 +27,7 @@
     ],
     "tags": [
       "Android",
-      "Java",
-      "mobile"
+      "Java"
     ],
     "github": "https://github.com/Omnicrola/just-simple-weather"
   },
@@ -43,26 +41,9 @@
     ],
     "tags": [
       "Android",
-      "Java",
-      "mobile"
+      "Java"
     ],
     "github": "https://github.com/Omnicrola/just-simple-signal"
-  },
-  {
-    "title": "Cosmic Pong",
-    "updated": "2017-10-01",
-    "screenshots": [
-    ],
-    "description": [
-      "A quick VR experiment to recreate Ping Pong in a VR environment"
-    ],
-    "tags": [
-      "VR",
-      "Unity",
-      "C#",
-      "game"
-    ],
-    "github": "https://github.com/Omnicrola/cosmic-pong"
   },
   {
     "title": "Space Rocks",
@@ -75,11 +56,8 @@
       "The game engine is a simple loop based on setInterval. The main loop calls a series of 'subsystems' that in      turn handle things like player input, collision detection, moving entities (asteroids), and trigger audio      and visual FX. Communication is an event-driven system to allow for loose coupling between the different Subsystems."
     ],
     "tags": [
-      "javascript",
-      "html",
-      "css",
-      "game",
-      "arcade"
+      "Games",
+      "Javascript"
     ],
     "github-link": "https://github.com/Omnicrola/SpaceRocks",
     "play-link": "https://omnicrola.github.io/SpaceRocks/"
@@ -95,12 +73,10 @@
       "A simple game in VR designed to mimic the target practice arena found in Star Trek : The Next Generation (<a href=\"https://www.youtube.com/watch?v=tR97q35_3nw\">example here</a>). The goal is to hit as many of the floating targets in the given time. Difficulty can be adjusted by the player, which will increase the frequency of the targets as well as their speed."
     ],
     "tags": [
+      "Games",
       "VR",
       "Unity",
-      "Star Trek",
-      "C#",
-      "FPS",
-      "game"
+      "C#"
     ],
     "github-link": "https://github.com/Omnicrola/PhaserDeck"
   },
@@ -115,13 +91,10 @@
       "A Unity-based 2D game designed for mobile. This is a simple match-3 game using the icons of planets. Certain planets have 'power gems' which will power up the player's launcher, which can then be use to fire a giant laser that obliterates planets for a short time."
     ],
     "tags": [
+      "Games",
       "Unity",
-      "mobile",
       "Android",
-      "C#",
-      "game",
-      "match-3",
-      "2D"
+      "C#"
     ],
     "github-link": "https://github.com/Omnicrola/PlanetBuster"
   },
@@ -136,11 +109,7 @@
     ],
     "tags": [
       "Java",
-      "hlsl",
-      "LWJGL",
-      "RTS",
-      "voxels",
-      "game"
+      "Games"
     ],
     "github-link": "https://github.com/Omnicrola/voxel-cascade"
   }
