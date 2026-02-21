@@ -5,98 +5,99 @@
     margin-bottom: 20px;
     border-radius: 10px;
     box-shadow: 5px 5px 5px rgba(0, 0, 0, .05);
-}
 
-.project .project-screenshot {
-    width: 300px;
-    box-sizing: border-box;
-    margin-right: 20px;
-    vertical-align: top;
-    padding: 5px;
-    height: 200px;
-    border: 3px solid white;
-    box-shadow: 0 0 10px rgba(0, 0, 0, .2);
-    border-radius: 5px;
-}
+    & .project-screenshot {
+        width: 300px;
+        box-sizing: border-box;
+        margin-right: 20px;
+        vertical-align: top;
+        padding: 5px;
+        height: 200px;
+        border: 3px solid white;
+        box-shadow: 0 0 10px rgba(0, 0, 0, .2);
+        border-radius: 5px;
+    }
 
-.project .description {
-    padding-left: 10px;
-    box-sizing: border-box;
-}
+    & .description {
+        padding-left: 10px;
+        box-sizing: border-box;
 
-.project .description h3 {
-    font-size: 1.5em;
-    margin-top: 0;
-}
+        & h3 {
+            font-size: 1.5em;
+            margin-top: 0;
+        }
 
-.project .description .updated {
-    margin-bottom: 10px;
-}
+        & .updated {
+            margin-bottom: 10px;
+        }
 
-.project .description .links {
-    display: flex;
-}
+        & .links {
+            display: flex;
 
-.project .description .links .play {
-    margin: 5px;
-    padding: 10px 20px;
-    border-radius: 10px;
-    font-size: 1.2em;
-    font-weight: bold;
-    color: #292929;
-    border: solid transparent 2px;
-    background: #92d89b;
-    transition: 0.5s;
-}
+            & .play {
+                margin: 5px;
+                padding: 10px 20px;
+                border-radius: 10px;
+                font-size: 1.2em;
+                font-weight: bold;
+                color: #292929;
+                border: solid transparent 2px;
+                background: #92d89b;
+                transition: 0.5s;
 
-.project .description .links .play:hover {
-    background: white;
-    border: 2px solid #92d89b;
-    transition: 0.5s;
-}
+                &:hover {
+                    background: white;
+                    border: 2px solid #92d89b;
+                    transition: 0.5s;
+                }
+            }
 
-.project .description .links .link {
-    background: #b1d5f7;
-    border-radius: 10px;
-    margin: 5px;
-    padding: 10px;
-    color: black;
-    display: flex;
-    align-items: center;
-    border: 2px solid transparent;
-}
+            & .link {
+                background: #b1d5f7;
+                border-radius: 10px;
+                margin: 5px;
+                padding: 10px;
+                color: black;
+                display: flex;
+                align-items: center;
+                border: 2px solid transparent;
 
-.project .description .links .link:hover {
-    background: white;
-    border: 2px solid #b1d5f7;
-    transition: 0.5s;
-}
+                &:hover {
+                    background: white;
+                    border: 2px solid #b1d5f7;
+                    transition: 0.5s;
+                }
 
-.link.github img {
-    height: 24px;
-    margin-left: 10px;
-}
-.project .description .links .link.youtube {
-    background-image: url('../images/youtube_icon.png');
-    background-repeat: no-repeat;
-    background-size: 64px;
-    background-position-x: right;
-    background-position-y: center;
-    padding-right: 64px;
-    height: 32px;
-    margin-left: 10px;
-}
+                &.github img {
+                    height: 24px;
+                    margin-left: 10px;
+                }
 
-.project .description .tags {
-    display: flex;
-    flex-wrap: wrap;
-}
+                &.youtube {
+                    background-image: url('../images/youtube_icon.png');
+                    background-repeat: no-repeat;
+                    background-size: 64px;
+                    background-position-x: right;
+                    background-position-y: center;
+                    padding-right: 64px;
+                    height: 32px;
+                    margin-left: 10px;
+                }
+            }
+        }
 
-.project .description .tags .tag {
-    padding: 4px 8px;
-    background: #b1d5f7;
-    margin: 2px;
-    border-radius: 4px;
+        & .tags {
+            display: flex;
+            flex-wrap: wrap;
+
+            & .tag {
+                padding: 4px 8px;
+                background: #b1d5f7;
+                margin: 2px;
+                border-radius: 4px;
+            }
+        }
+    }
 }
 
 #tag-filter {
@@ -105,49 +106,49 @@
     background: #EFEFEF;
     border-radius: 10px;
     box-shadow: 5px 5px 5px rgba(0, 0, 0, .05);
-}
 
-.tag-filter-label {
-    font-weight: bold;
-    display: block;
-    margin-bottom: 8px;
-}
+    & .tag-filter-label {
+        font-weight: bold;
+        display: block;
+        margin-bottom: 8px;
+    }
 
-#tag-filter-buttons {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 6px;
-}
+    & #tag-filter-buttons {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+    }
 
-#project-count {
-    margin-top: 10px;
-    font-size: 0.9em;
-    color: #555;
-}
+    & #project-count {
+        margin-top: 10px;
+        font-size: 0.9em;
+        color: #555;
+    }
 
-.tag-filter-btn {
-    padding: 4px 12px;
-    background: #b1d5f7;
-    border: 2px solid transparent;
-    border-radius: 4px;
-    cursor: pointer;
-    font-family: inherit;
-    font-size: 0.9em;
-    transition: 0.2s;
-}
+    & .tag-filter-btn {
+        padding: 4px 12px;
+        background: #b1d5f7;
+        border: 2px solid transparent;
+        border-radius: 4px;
+        cursor: pointer;
+        font-family: inherit;
+        font-size: 0.9em;
+        transition: 0.2s;
 
-.tag-filter-btn:hover {
-    background: white;
-    border-color: #b1d5f7;
-}
+        &:hover {
+            background: white;
+            border-color: #b1d5f7;
+        }
 
-.tag-filter-btn.active {
-    background: #3a8fd8;
-    color: white;
-    border-color: #3a8fd8;
-}
+        &.active {
+            background: #3a8fd8;
+            color: white;
+            border-color: #3a8fd8;
 
-.tag-filter-btn.active:hover {
-    background: white;
-    color: #3a8fd8;
+            &:hover {
+                background: white;
+                color: #3a8fd8;
+            }
+        }
+    }
 }

@@ -21,16 +21,25 @@ body {
 
 #content {
     transition: 250ms;
+
+    & .text-paragraph {
+        margin: 10px;
+        font-size: 1.2em;
+
+        & p {
+            text-indent: 1em;
+        }
+    }
 }
 
 a, app-link {
     cursor: pointer;
     text-decoration: none;
-}
 
-a:hover, app-link:hover {
-    text-decoration: underline;
-    color: white;
+    &:hover {
+        text-decoration: underline;
+        color: white;
+    }
 }
 
 header {
@@ -42,81 +51,81 @@ header {
     background: white;
     z-index: 1000;
     box-shadow: rgb(140, 140, 140) 0 5px 5px;
-}
 
-header h1 {
-    margin: 0;
-    padding: 0;
-    border-bottom: 2px solid grey;
-}
+    & h1 {
+        margin: 0;
+        padding: 0;
+        border-bottom: 2px solid grey;
+    }
 
-header .header-center {
-    margin: auto;
-    max-width:1000px;
+    & .header-center {
+        margin: auto;
+        max-width: 1000px;
+    }
 }
 
 #menu {
     top: 200px;
     left: 0;
     border-bottom: 2px solid grey;
-}
 
-#menu ul {
-    margin: 0;
-    padding: 0;
-    width: 100%;
-    list-style: none;
-}
+    & ul {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        list-style: none;
+    }
 
-#menu li {
-    margin: 0;
-    padding: 0;
-    display: inline;
-}
+    & li {
+        margin: 0;
+        padding: 0;
+        display: inline;
+    }
 
-#menu a {
-    color: #444;
-    display: inline-block;
-    text-decoration: none;
-    padding: 10px;
-    transition: 750ms;
-}
+    & a {
+        color: #444;
+        display: inline-block;
+        text-decoration: none;
+        padding: 10px;
+        transition: 750ms;
 
-#menu a:hover {
-    background: #CCC;
-    color: black;
-    transition: 500ms;
-}
+        &:hover {
+            background: #CCC;
+            color: black;
+            transition: 500ms;
+        }
 
-#menu a.red:hover {
-    background: rgba(255, 49, 39, 0.46);
-}
+        &.red:hover {
+            background: rgba(255, 49, 39, 0.46);
+        }
 
-#menu a.green:hover {
-    background: #D5FFA8;
-}
+        &.green:hover {
+            background: #D5FFA8;
+        }
 
-#menu a.blue:hover {
-    background: #568EB2;
-}
+        &.blue:hover {
+            background: #568EB2;
+        }
 
-#menu a.yellow:hover {
-    background: #FFFEA8;
+        &.yellow:hover {
+            background: #FFFEA8;
+        }
+    }
 }
 
 footer {
     border-top: 2px solid grey;
     margin-top: 10px;
     padding: 10px 0 20px 0;
-}
 
-footer a {
-    color: black;
-    text-decoration: underline;
-}
+    & a {
+        color: black;
+        text-decoration: underline;
 
-footer a:hover {
-    color: black;
+        &:hover {
+            color: black;
+        }
+    }
 }
 
 .loading {
@@ -133,10 +142,8 @@ footer a:hover {
     text-align: center;
     display: grid;
     grid-template-columns: 50% 50%;
-}
 
-@media (max-width: 500px) {
-    .project-tiles {
+    @media (max-width: 500px) {
         grid-template-columns: 100%;
     }
 }
@@ -151,14 +158,46 @@ footer a:hover {
     transition: 500ms;
     overflow: hidden;
     box-shadow: rgba(0, 0, 0, .25) 0 0 10px;
+
+    &:hover {
+        transition: 500ms;
+    }
+
+    &.red {
+        background: #FF2E1E;
+
+        &:hover {
+            background: #FF8982;
+        }
+    }
+
+    &.green {
+        background: #93FFA4;
+
+        &:hover {
+            background: #D5FFA8;
+        }
+    }
+
+    &.blue {
+        background: #5E94CC;
+
+        &:hover {
+            background: #568EB2;
+        }
+    }
+
+    &.yellow {
+        background: #E8FF44;
+
+        &:hover {
+            background: #FFFEA8;
+        }
+    }
 }
 
 img.slide {
     width: 100%;
-}
-
-.tile:hover {
-    transition: 500ms;
 }
 
 .tile-title {
@@ -171,54 +210,22 @@ img.slide {
     margin-bottom: 4px;
 }
 
-.tile.red {
-    background: #FF2E1E;
-}
-
-.tile.red:hover {
-    background: #FF8982;
-}
-
-.tile.green {
-    background: #93FFA4;
-}
-
-.tile.green:hover {
-    background: #D5FFA8;
-}
-
-.tile.blue {
-    background: #5E94CC;
-}
-
-.tile.blue:hover {
-    background: #568EB2;
-}
-
-.tile.yellow {
-    background: #E8FF44;
-}
-
-.tile.yellow:hover {
-    background: #FFFEA8;
-}
-
 .image-slideshow {
     position: relative;
     padding-bottom: 80%;
     overflow: hidden;
-}
 
-.image-slideshow > .slide {
-    position: absolute;
-    top: 0;
-    left: 0;
-    opacity: 1;
-    transition: 500ms ease-out;
-}
+    & > .slide {
+        position: absolute;
+        top: 0;
+        left: 0;
+        opacity: 1;
+        transition: 500ms ease-out;
 
-.image-slideshow > .slide.slide-hidden {
-    opacity: 0;
+        &.slide-hidden {
+            opacity: 0;
+        }
+    }
 }
 
 /*dark red B2554E
@@ -241,62 +248,15 @@ img.slide {
 }
 
 /* pretend to be bootstrappy */
-.col-1 {
-    width: 8.3333333%;
-    display: inline-block;
-}
-
-.col-2 {
-    width: 16.66666666666667%;
-    display: inline-block;
-}
-
-.col-3 {
-    width: 25%;
-    display: inline-block;
-}
-
-.col-4 {
-    width: 33.33333333333333%;
-    display: inline-block;
-}
-
-.col-5 {
-    width: 41.66666666666667%;
-    display: inline-block;
-}
-
-.col-6 {
-    width: 50%;
-    display: inline-block;
-}
-
-.col-7 {
-    width: 58.33333333333333%;
-    display: inline-block;
-}
-
-.col-8 {
-    width: 66.66666666666667%;
-    display: inline-block;
-}
-
-.col-9 {
-    width: 75%;
-    display: inline-block;
-}
-
-.col-10 {
-    width: 83.33333333333333%;
-    display: inline-block;
-}
-
-.col-11 {
-    width: 91.66666666666667%;
-    display: inline-block;
-}
-
-.col-12 {
-    width: 100%;
-    display: inline-block;
-}
+.col-1 { width: 8.3333333%; display: inline-block; }
+.col-2 { width: 16.66666666666667%; display: inline-block; }
+.col-3 { width: 25%; display: inline-block; }
+.col-4 { width: 33.33333333333333%; display: inline-block; }
+.col-5 { width: 41.66666666666667%; display: inline-block; }
+.col-6 { width: 50%; display: inline-block; }
+.col-7 { width: 58.33333333333333%; display: inline-block; }
+.col-8 { width: 66.66666666666667%; display: inline-block; }
+.col-9 { width: 75%; display: inline-block; }
+.col-10 { width: 83.33333333333333%; display: inline-block; }
+.col-11 { width: 91.66666666666667%; display: inline-block; }
+.col-12 { width: 100%; display: inline-block; }

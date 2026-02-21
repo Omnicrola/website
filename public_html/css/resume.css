@@ -26,18 +26,20 @@
     border-radius: 5px;
 }
 
-.skills li {: 1.2 em;
-    background: #b1d5f7;
-    text-decoration: none;
-    margin-top: 3px;
-    padding: 2px;
-    width: 50%;
-    list-style: none;
-    margin-left: 0;
-}
+.skills {
+    & li {: 1.2 em;
+        background: #b1d5f7;
+        text-decoration: none;
+        margin-top: 3px;
+        padding: 2px;
+        width: 50%;
+        list-style: none;
+        margin-left: 0;
 
-.skills li:hover {
-    background: #FFF;
+        &:hover {
+            background: #FFF;
+        }
+    }
 }
 
 .historyBlock {
