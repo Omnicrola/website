@@ -37,29 +37,31 @@ let Navigation = ((contentTarget) => {
     }
 
     function _onAnchorClick(event) {
+        console.log(event);
         event.preventDefault();
         let linkUrl = _recursiveHrefSearch(event.target);
-        let subUrl = linkUrl.split('#')[1];
+        let subPageName = linkUrl.split('#')[1];
+        subPageName.sub
 
         NavigationCache.unload(_currentUrl);
 
-        _clearContent();
-        _setUrlBar(subUrl);
-        _retrieveContent(subUrl);
+        _loadContent(subPageName);
     }
 
-    function _loadContent(url) {
+    function _loadContent(subPageName) {
         _clearContent();
-        _setUrlBar(url);
-        return _retrieveContent(url);
+        _setUrlBar(subPageName);
+        return _retrieveContent(subPageName + '.html');
     }
 
 
     function _initializeNavigation(element) {
         element.querySelectorAll('a')
             .forEach(element => {
-                if (element.attributes['data-local'] && element.attributes['data-local'].value) {
+                if (element.attributes['data-local'] && element.attributes['data-local'].value == "true") {
                     element.onclick = _onAnchorClick;
+                } else {
+                    console.log(element.attributes['data-local'])
                 }
             });
         window.onpopstate = (event) => {
@@ -80,8 +82,16 @@ let Navigation = ((contentTarget) => {
         }
     }
 
+    function _navigate(url) {
+        NavigationCache.unload(_currentUrl);
+        _clearContent();
+        _setUrlBar(url);
+        _retrieveContent(url);
+    }
+
     _initializeNavigation(document);
     return {
         loadDefaultContent: _loadDefault,
+        navigate: _navigate,
     };
 })('#content');

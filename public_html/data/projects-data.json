@@ -1,5 +1,6 @@
 [
   {
+    "id": "the-interior",
     "title": "The Interior",
     "updated": "2018-11-01",
     "screenshots": [
@@ -18,6 +19,7 @@
     "github": "https://github.com/Omnicrola/just-simple-weather"
   },
   {
+    "id": "just-simple-weather",
     "title": "Just Simple Weather",
     "updated": "2018-05-01",
     "screenshots": [
@@ -32,6 +34,7 @@
     "github": "https://github.com/Omnicrola/just-simple-weather"
   },
   {
+    "id": "just-simple-signal",
     "title": "Just Simple Signal",
     "updated": "2018-05-01",
     "screenshots": [
@@ -46,6 +49,7 @@
     "github": "https://github.com/Omnicrola/just-simple-signal"
   },
   {
+    "id": "space-rocks",
     "title": "Space Rocks",
     "updated": "2017-12-01",
     "screenshots": [
@@ -63,6 +67,7 @@
     "play-link": "https://omnicrola.github.io/SpaceRocks/"
   },
   {
+    "id": "phaser-deck",
     "title": "Phaser Deck",
     "updated": "2017-11-01",
     "screenshots": [
@@ -81,6 +86,7 @@
     "github-link": "https://github.com/Omnicrola/PhaserDeck"
   },
   {
+    "id": "planet-buster",
     "title": "Planet Buster",
     "updated": "2017-06-01",
     "screenshots": [
@@ -99,6 +105,7 @@
     "github-link": "https://github.com/Omnicrola/PlanetBuster"
   },
   {
+    "id": "voxel-cascade",
     "title": "Voxel Cascade",
     "updated": "2016-04-01",
     "screenshots": [

@@ -1,7 +1,17 @@
+
 let Ajax = (() => {
+
+    function _cacheString() {
+        if(window.location.hostname == "127.0.0.1" || window.location.hostname == "localhost") {
+            return Date.now();
+        } else {
+            return GLOBALS.version;
+        }
+    }
+
     function _get(url) {
         let xhr = new XMLHttpRequest();
-        xhr.open('GET', url, true);
+        xhr.open('GET', url + '?v=' + _cacheString(), true);
 
         let promise = new Promise((resolve, reject) => {
             xhr.onreadystatechange = function () {

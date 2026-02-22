@@ -1,3 +1,9 @@
+
+let GLOBALS = {
+    version : "20260221"
+};
+
+
 let modules = [
     'modules/Slideshow',
     'modules/Ajax',
