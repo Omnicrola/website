@@ -7,12 +7,12 @@ let GLOBALS = {
 let modules = [
     'modules/Slideshow',
     'modules/Ajax',
-    'modules/NavigationCache',
+    'modules/PageScriptLoader',
     'modules/Navigation',
     'modules/Template'
 ];
 ModuleLoader.loadModules(modules)
     .then(() => {
         console.log('modules loaded!');
-        return Navigation.loadDefaultContent('main.html');
+        return Navigation.loadStartingContent('main');
     });

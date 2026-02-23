@@ -16,11 +16,13 @@ let Ajax = (() => {
         let promise = new Promise((resolve, reject) => {
             xhr.onreadystatechange = function () {
                 if (this.readyState !== 4) return;
-                if (this.status !== 200) {
+                if (this.status == 200) {
+                    console.log('loaded : ' + url);
+                    resolve(this.responseText);
+                } else { 
+                    console.log('Failed to retrieve URL : ' + url);
                     reject(this);
                 }
-                console.log('loaded : ' + url);
-                resolve(this.responseText);
             };
         });
 

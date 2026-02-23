@@ -1,57 +1,50 @@
 let Navigation = ((contentTarget) => {
 
     let _contentContainer = document.querySelector(contentTarget);
-    let _currentUrl = '';
 
     function _clearContent() {
         _contentContainer.innerHTML = '';
         _contentContainer.classList.add('loading');
     }
 
-    function _retrieveContent(url) {
-        return Ajax.get(url)
+    function _retrievePageContent(pageName) {
+        return Ajax.get(pageName + '.html')
             .then((content) => {
+                PageScriptLoader.unloadCurrentPage();
                 _contentContainer.classList.remove('loading');
                 _contentContainer.innerHTML = content;
-
-                _currentUrl = url;
-                return NavigationCache.load(url);
+                return PageScriptLoader.loadScript(pageName);
             })
             .then(() => {
                 _initializeNavigation(_contentContainer);
+            })
+            .catch((err) => {
+                console.log('Error retrieving URL : ' + pageName);
+                console.log(err);
             });
-    }
-
-    function _setUrlBar(contentUrl) {
-        let state = {contentUrl: contentUrl};
-        let baseUrl = window.location.href.split('#')[0];
-        window.history.pushState(state, '', baseUrl + '#' + contentUrl);
     }
 
     function _recursiveHrefSearch(node) {
         if (node.href) {
-            return node.href;
+            return node.attributes['href'].value;
         } else {
             return _recursiveHrefSearch(node.parentElement);
         }
     }
 
     function _onAnchorClick(event) {
-        console.log(event);
         event.preventDefault();
-        let linkUrl = _recursiveHrefSearch(event.target);
-        let subPageName = linkUrl.split('#')[1];
-        subPageName.sub
+        let pagePath = _recursiveHrefSearch(event.target);
+        let pageName = pagePath.split('/#/')[1];
 
-        NavigationCache.unload(_currentUrl);
-
-        _loadContent(subPageName);
+        _loadContent(pageName);
+        return false;
     }
 
-    function _loadContent(subPageName) {
+    function _loadContent(newPage) {
         _clearContent();
-        _setUrlBar(subPageName);
-        return _retrieveContent(subPageName + '.html');
+        NavigationPath.setPage(newPage);
+        return _retrievePageContent(newPage);
     }
 
 
@@ -59,39 +52,67 @@ let Navigation = ((contentTarget) => {
         element.querySelectorAll('a')
             .forEach(element => {
                 if (element.attributes['data-local'] && element.attributes['data-local'].value == "true") {
-                    element.onclick = _onAnchorClick;
-                } else {
-                    console.log(element.attributes['data-local'])
+                    element.addEventListener('click', _onAnchorClick);
                 }
             });
-        window.onpopstate = (event) => {
-            // _loadContent(event.state.contentUrl);
-        }
     }
 
-    function _loadDefault(defaultUrl) {
-        let urlFragments = window.location.href.split('#');
-        let subContentIsSpecified = urlFragments.length > 1 && urlFragments[1].length > 0;
-        if (subContentIsSpecified) {
-            let subContentUrl = urlFragments[1];
-            console.log('loading sub-content : ' + subContentUrl);
-            return _loadContent(subContentUrl);
+    function _loadStartingContent(defaultPage) {
+        const currentPage = NavigationPath.currentPage();
+        if(!currentPage || currentPage.length == 0) {
+            console.log('loading default page')
+            _loadContent(defaultPage);
         } else {
-            console.log('loading default sub-content');
-            return _loadContent(defaultUrl);
+            console.log('Loading starting content :' + currentPage)
+            _loadContent(currentPage);
         }
     }
 
-    function _navigate(url) {
-        NavigationCache.unload(_currentUrl);
-        _clearContent();
-        _setUrlBar(url);
-        _retrieveContent(url);
-    }
-
+    // runs on startup, hijacks all <a data-local="true" href=""> click events
     _initializeNavigation(document);
+
     return {
-        loadDefaultContent: _loadDefault,
-        navigate: _navigate,
+        loadStartingContent: _loadStartingContent,
     };
 })('#content');
+
+const NavigationPath = (() => {
+
+    function _getUrlArray() {
+        // the expected format of the URL is : 
+        // http://www.host.com/#/pagename/param1/param2
+        return window.location.href.split('#')[1]?.slice(1).split('/') ?? [];
+    }
+
+    function _getCurrentPage() {
+        // return just the first element, it is the page name
+        return _getUrlArray()[0];
+    }
+
+    function _setPage(newPage) {
+        let state = {};
+        let newUrl = window.location.protocol + '//' + window.location.host + '/#/' + newPage
+        window.history.pushState(state, '', newUrl); 
+    }
+
+    function _getParams() {
+        // drop the first element, it is the page name
+        return _getUrlArray.slice(1);
+    }
+
+    function _getValueByParamName(paramName) {
+        const params = _getParams();
+        const index = params.findIndex((str) => str == paramName);
+        if(index == -1) { 
+            return undefined;
+        }
+        return params[index + 1];
+    }
+
+    return {
+        currentPage : _getCurrentPage,
+        setPage : _setPage,
+        params : _getParams,
+        getValue : _getValueByParamName
+    }
+})();
