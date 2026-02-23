@@ -46,10 +46,12 @@ let Slideshow = (() => {
     function _destroy(selector) {
         let element = document.querySelector(selector);
         if (!element) {
-            throw new Error('Cannot destroy slideshow, element not found : ' + selector);
+            console.warn('Cannot destroy slideshow, element not found : ' + selector);
+            return;
         }
         if (!element.slideshow) {
-            throw new Error('Element does not contain a slideshow : ' + selector);
+            console.warn('Element does not contain a slideshow : ' + selector);
+            return;
         }
         element.slideshow.stop();
     }

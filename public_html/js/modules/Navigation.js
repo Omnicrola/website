@@ -19,8 +19,8 @@ let Navigation = ((contentTarget) => {
                 _initializeNavigation(_contentContainer);
             })
             .catch((err) => {
-                console.log('Error retrieving URL : ' + pageName);
-                console.log(err);
+                console.err('Error retrieving page : ' + pageName);
+                console.err(err);
             });
     }
 
