@@ -11,6 +11,30 @@
     "github-link" : "https://github.com/Omnicrola/website"
   },
   {
+    "id" : "cosmere-explorer",
+    "title" : "Cosmere Explorer",
+    "updated" : "2025-12-30",
+    "screenshots": [],
+    "tags" : ["Javascript", "Website", "Cosmere"],
+    "description" : [
+      "A browser-based solar-system explorer for the fictional worlds of Brandon Sanderson's Cosmere novels."
+    ],
+    "github-link" : "https://github.com/Omnicrola/cosmere-explorer",
+    "play-link" : "https://omnicrola.github.io/cosmere-explorer/"
+  },
+  {
+    "id" : "the-cosmere-begins",
+    "title" : "The Cosmere Begins",
+    "updated" : "2024-10-27",
+    "screenshots": [],
+    "tags" : ["Unreal", "Animation", "Cosmere"],
+    "description" : [
+      "A parody of a parody! This is an animation made in Unreal Engine, created to go with a parody of Weird Al's 'The Saga Begins', which is itself a parody of 'American Pie' by Don McLean.",
+      "Created over the course of 6 months, this 6 minute video utilized a range of tools including Metahuman Creator, Blender, Photoshop, and Davinci Resolve."
+    ],
+    "youtube-link" : "https://www.youtube.com/watch?v=Z9qc-OXMfWo"
+  },
+  {
     "id": "the-interior",
     "title": "The Interior",
     "updated": "2018-11-01",

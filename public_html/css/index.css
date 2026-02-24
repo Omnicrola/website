@@ -25,6 +25,7 @@ body {
     & .text-paragraph {
         margin: 10px;
         font-size: 1.2em;
+        display: flow-root;
 
         & p {
             text-indent: 1em;
@@ -94,7 +95,7 @@ header {
         transition: 750ms;
 
         &:hover {
-            background: #CCC;
+            background-color: #CCC;
             color: black;
             transition: 500ms;
         }
@@ -140,12 +141,25 @@ footer {
     transition: 100ms;
 }
 
-/***** tiles */
 .project-tiles {
     margin: auto;
     text-align: center;
     display: grid;
     grid-template-columns: 50% 50%;
+
+    @media (max-width: 500px) {
+        grid-template-columns: 100%;
+    }
+}
+
+.tile-float-right {
+    float: right;
+    width: 35%;
+    margin: 15px;
+}
+
+.recent-tiles {
+    grid-template-columns: repeat(3, 1fr);
 
     @media (max-width: 500px) {
         grid-template-columns: 100%;
@@ -168,18 +182,18 @@ footer {
     }
 
     &.red {
-        background: #FF2E1E;
+        background-color: #FF2E1E;
 
         &:hover {
-            background: #FF8982;
+            background-color: #FF8982;
         }
     }
 
     &.green {
-        background: #93FFA4;
+        background-color: #93FFA4;
 
         &:hover {
-            background: #D5FFA8;
+            background-color: #D5FFA8;
         }
     }
 
@@ -187,7 +201,7 @@ footer {
         background: #5E94CC;
 
         &:hover {
-            background: #568EB2;
+            background-color: #568EB2;
         }
     }
 
@@ -195,7 +209,7 @@ footer {
         background: #E8FF44;
 
         &:hover {
-            background: #FFFEA8;
+            background-color: #FFFEA8;
         }
     }
 }
@@ -212,6 +226,7 @@ img.slide {
     padding: 10px 0;
     border-radius: 5px;
     margin-bottom: 4px;
+    text-align: center;
 }
 
 .image-slideshow {

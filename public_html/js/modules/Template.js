@@ -10,9 +10,9 @@ let Template = (() => {
                 let repeatData = data[propName];
                 let subSelector = repeatElement.attributes['template-for'].value.replace(propName + ' as ', '');
                 let newInnerHtml = '';
+                let templateHtml = repeatElement.innerHTML;
                 for (let dataIndex = 0; dataIndex < repeatData.length; dataIndex++) {
-                    let templateHtml = repeatElement.innerHTML;
-                    newInnerHtml = templateHtml.replace(new RegExp(`\\{\\{${subSelector}\\}\\}`, 'g'), repeatData[dataIndex]);
+                    newInnerHtml += templateHtml.replace(new RegExp(`\\{\\{${subSelector}\\}\\}`, 'g'), repeatData[dataIndex]);
                 }
                 repeatElement.innerHTML = newInnerHtml;
             }
