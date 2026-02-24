@@ -1,26 +1,36 @@
 <link rel="stylesheet" href="css/projects.css">
 
-<a class="back-link" data-local="true" href="#projects.html">&#8592; Back to Projects</a>
-<div class="project" id="project-detail">
+<a class="back-link" data-local="true" href="/#/projects">&#8592; Back to Projects</a>
+<div class="project" id="project-template">
     <div class="project-screenshot image-slideshow bg-black col-4" template-for="screenshots as screenshot">
         <img class="responsive slide" src="images/projects/{{screenshot}}"/>
     </div>
-    <div class="description col-7">
-        <h2>{{title}}</h2>
+    <div class="description col-6">
+        <h3><a data-local="true" href="/#/project/id/{{id}}">{{title}}</a></h3>
+        
         <div class="updated">Updated: {{updated}}</div>
         <div class="tags" template-for="tags as tag">
             <div class="tag">{{tag}}</div>
         </div>
         <div template-for="description as paragraph"><p>{{paragraph}}</p></div>
-        <div class="links">
-            <a href="{{github-link}}" class="link github">
-                View on GitHub
-                <img src="images/GitHub-Mark-64px.png"/>
-            </a>
-            <a href="{{youtube-link}}" class="link youtube">
-                Watch on Youtube
-            </a>
-            <a href="{{play-link}}" class="play"><i class="fa fa-play"></i> Play</a>
-        </div>
+    </div>
+    <div class="col-1">
+        <ul class="project-links">
+            <li class="icon-link">
+                <a data-local="true" href="/#/project/id/{{id}}">
+                    <img src="images/icons/icon-search.png"/>
+                </a>
+            </li>
+            <li class="icon-link github-link">
+                <a href="{{github-link}}">
+                    <img src="images/icons/icon-github-octocat.png"/>
+                </a>
+            </li>
+            <li class="icon-link youtube-link">
+                <a href="{{youtube-link}}">
+                    <img src="images/icons/icon-youtube.png"/>
+                </a>
+            </li>
+        </ul>
     </div>
 </div>

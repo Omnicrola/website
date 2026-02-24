@@ -9,11 +9,6 @@ let PageScriptLoader = (() => {
             element.onload = () => {
                 resolve(pageName);
             };
-            element.onreadystatechange = () => {
-                if (this.readyState === 'loaded') {
-                    resolve();
-                }
-            };
         });
     }
 
@@ -24,10 +19,10 @@ let PageScriptLoader = (() => {
         return _performLoad(pageName)
             .then(() => {
                 if (!window.module || !window.module.triggers) {
-                    throw new Error('Module "' + pageName + '" has no load triggers');
+                    console.warn('Module "' + pageName + '" has no load triggers');
                 }
                 _currentPage = pageName;
-                window.module.triggers.onLoad();
+                return window.module.triggers.onLoad();
             });
     }
 

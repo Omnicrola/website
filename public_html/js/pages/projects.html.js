@@ -5,10 +5,6 @@ window.module.triggers = (() => {
     let activeTags = new Set();
     let slideshowSelectors = [];
 
-    function _byProjectUpdated(p1, p2) {
-        return new Date(p2.updated) - new Date(p1.updated);
-    }
-
     function _extractTagCounts(projects) {
         let counts = {};
         projects.forEach(project => {
@@ -66,6 +62,10 @@ window.module.triggers = (() => {
         });
         _updateProjectCount();
     }
+    
+    function _byProjectUpdated(p1, p2) {
+        return new Date(p2.updated) - new Date(p1.updated);
+    }
 
     function _loadProjectsFromJson() {
         let template = document.querySelector('#project-template');
@@ -108,6 +108,7 @@ window.module.triggers = (() => {
                         newSlideshowSelectors.push(slideshowSelector);
                     }
                 }
+                console.log('created all projects')
                 _updateProjectCount();
                 return newSlideshowSelectors;
             });
@@ -124,7 +125,7 @@ window.module.triggers = (() => {
 
     function _onLoad() {
         activeTags = new Set();
-        _loadProjectsFromJson()
+        return _loadProjectsFromJson()
             .then((newSlideshowSelectors) => {
                 slideshowSelectors = newSlideshowSelectors;
             });

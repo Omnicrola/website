@@ -5,11 +5,11 @@ window.module.triggers = (() => {
     let slideshowSelectors = [];
 
     function _onLoad() {
-        let projectId = window.currentProjectId;
-        let detailEl = document.querySelector('#project-detail');
+        let projectId = NavigationPath.getValue('id');
+        let projectElement = document.querySelector('#project-template');
 
         if (!projectId) {
-            detailEl.innerHTML = '<p>No project selected. <a data-local="true" href="#projects.html">&#8592; Back to Projects</a></p>';
+            projectElement.innerHTML = '<p>No project selected. <a data-local="true" href="#projects.html">&#8592; Back to Projects</a></p>';
             return;
         }
 
@@ -19,33 +19,33 @@ window.module.triggers = (() => {
                 let projectData = projects.find(p => p.id === projectId);
 
                 if (!projectData) {
-                    detailEl.innerHTML = '<p>Project not found.</p>';
+                    projectElement.innerHTML = '<p>Project not found.</p>';
                     return;
                 }
 
                 let projectDate = new Date(projectData.updated);
                 projectData.updated = MONTHS[projectDate.getMonth()] + ' ' + projectDate.getFullYear();
 
-                Template.apply(detailEl, projectData);
+                Template.apply(projectElement, projectData);
 
                 if (!projectData['play-link']) {
-                    let playLink = detailEl.querySelector('.play');
+                    let playLink = projectElement.querySelector('.play');
                     if (playLink) playLink.parentNode.removeChild(playLink);
                 }
 
                 if (!projectData['youtube-link']) {
-                    let youtubeLink = detailEl.querySelector('.youtube');
+                    let youtubeLink = projectElement.querySelector('.youtube');
                     if (youtubeLink) youtubeLink.parentNode.removeChild(youtubeLink);
                 }
 
+                let slideDisplaySelector = '.image-slideshow';
                 if (projectData.screenshots.length > 1) {
-                    let selector = '#project-detail .image-slideshow';
                     Slideshow.create({
-                        targetSelector: selector,
+                        targetSelector: slideDisplaySelector,
                         transitionInterval: 6000,
                         startDelay: 0
                     });
-                    slideshowSelectors.push(selector);
+                    slideshowSelectors.push(slideDisplaySelector);
                 }
             });
     }

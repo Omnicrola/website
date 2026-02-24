@@ -15,6 +15,7 @@ window.module.triggers = (() => {
             transitionInterval: 3000,
             startDelay: 300,
         });
+        return Promise.resolve();
     }
 
     function _onUnload() {

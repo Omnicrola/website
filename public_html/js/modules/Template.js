@@ -12,7 +12,7 @@ let Template = (() => {
                 let newInnerHtml = '';
                 for (let dataIndex = 0; dataIndex < repeatData.length; dataIndex++) {
                     let templateHtml = repeatElement.innerHTML;
-                    newInnerHtml += templateHtml.replace('{{' + subSelector + '}}', repeatData[dataIndex]);
+                    newInnerHtml = templateHtml.replace(new RegExp(`\\{\\{${subSelector}\\}\\}`, 'g'), repeatData[dataIndex]);
                 }
                 repeatElement.innerHTML = newInnerHtml;
             }
@@ -25,7 +25,7 @@ let Template = (() => {
         for (let i = 0; i < properties.length; i++) {
             let prop = properties[i];
             let value = data[prop];
-            innerHtml = innerHtml.replace('{{' + prop + '}}', value);
+            innerHtml = innerHtml.replace(new RegExp(`\\{\\{${prop}\\}\\}`, 'g'), value);
         }
         node.innerHTML = innerHtml;
         _handleRepeating(node, data);

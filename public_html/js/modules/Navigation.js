@@ -16,11 +16,11 @@ let Navigation = ((contentTarget) => {
                 return PageScriptLoader.loadScript(pageName);
             })
             .then(() => {
-                _initializeNavigation(_contentContainer);
+                _overrideLocalLinks(_contentContainer);
             })
             .catch((err) => {
-                console.err('Error retrieving page : ' + pageName);
-                console.err(err);
+                console.error('Error retrieving page : ' + pageName);
+                console.error(err);
             });
     }
 
@@ -32,27 +32,26 @@ let Navigation = ((contentTarget) => {
         }
     }
 
-    function _onAnchorClick(event) {
+    function _onLocalLinkClick(event) {
         event.preventDefault();
-        let pagePath = _recursiveHrefSearch(event.target);
-        let pageName = pagePath.split('/#/')[1];
-
-        _loadContent(pageName);
+        let newPath = _recursiveHrefSearch(event.target);
+        _loadContent(newPath);
         return false;
     }
 
-    function _loadContent(newPage) {
+    function _loadContent(newPath) {
         _clearContent();
-        NavigationPath.setPage(newPage);
-        return _retrievePageContent(newPage);
+        let pageName = NavigationPath.breakUrl(newPath)[0];
+        NavigationPath.setPage(newPath);
+        return _retrievePageContent(pageName);
     }
 
 
-    function _initializeNavigation(element) {
+    function _overrideLocalLinks(element) {
         element.querySelectorAll('a')
             .forEach(element => {
                 if (element.attributes['data-local'] && element.attributes['data-local'].value == "true") {
-                    element.addEventListener('click', _onAnchorClick);
+                    element.addEventListener('click', _onLocalLinkClick);
                 }
             });
     }
@@ -64,40 +63,51 @@ let Navigation = ((contentTarget) => {
             _loadContent(defaultPage);
         } else {
             console.log('Loading starting content :' + currentPage)
-            _loadContent(currentPage);
+            _loadContent('/#/'+NavigationPath.currentPath());
         }
     }
 
     // runs on startup, hijacks all <a data-local="true" href=""> click events
-    _initializeNavigation(document);
+    _overrideLocalLinks(document);
 
     return {
         loadStartingContent: _loadStartingContent,
+        overrideLocalLinks: _overrideLocalLinks
     };
 })('#content');
 
 const NavigationPath = (() => {
 
-    function _getUrlArray() {
+    function _getCurrentUrlArray() {
         // the expected format of the URL is : 
         // http://www.host.com/#/pagename/param1/param2
-        return window.location.href.split('#')[1]?.slice(1).split('/') ?? [];
+        return _breakUrl(window.location.href) ?? [];
+    }
+
+    function _breakUrl(url) {
+        return url?.split('#')[1]?.split('/').filter(s=>s!=='') ?? [];
     }
 
     function _getCurrentPage() {
         // return just the first element, it is the page name
-        return _getUrlArray()[0];
+        return _getCurrentUrlArray()[0];
     }
 
-    function _setPage(newPage) {
+    function _getCurrentPath() {
+        console.log('URL : '+_getCurrentUrlArray().join('/'));
+        return _getCurrentUrlArray().join('/');
+    }
+
+    function _setPath(newPath) {
         let state = {};
-        let newUrl = window.location.protocol + '//' + window.location.host + '/#/' + newPage
+        newPath = newPath.substring(0,2) == '/#' ? newPath : '/#'+newPath;
+        let newUrl = window.location.protocol + '//' + window.location.host + newPath
         window.history.pushState(state, '', newUrl); 
     }
 
     function _getParams() {
         // drop the first element, it is the page name
-        return _getUrlArray.slice(1);
+        return _getCurrentUrlArray().slice(1);
     }
 
     function _getValueByParamName(paramName) {
@@ -111,8 +121,10 @@ const NavigationPath = (() => {
 
     return {
         currentPage : _getCurrentPage,
-        setPage : _setPage,
+        currentPath : _getCurrentPath,
+        setPage : _setPath,
         params : _getParams,
+        breakUrl : _breakUrl, 
         getValue : _getValueByParamName
     }
 })();
