@@ -62,6 +62,10 @@ header {
         margin: auto;
         max-width: 1000px;
     }
+
+    .title {
+        a, a:visited, a:hover { color:#444; text-decoration: none;}
+    }
 }
 
 #menu {
