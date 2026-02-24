@@ -1,0 +1,41 @@
+{
+    "id" : "omnicrola-dot-com",
+    "blocks": [
+        {
+            "template" : "textblock",
+            "text" : "This website is a personal portfolio and project showcase — a living record of my professional accomplishments and personal projects. Most recently, the 2026 update refined the site's media capabilities, making it possible to present projects with the depth and visual richness they deserve. Other sections that used to be presented separately (old 3D renders, Smartlaunch Skins) are now integrated into the new projects display framework.",
+            "image" : {
+                "url" : "omnicrola-2002.jpg",
+                "align" : "left"
+            }
+        },
+        {
+            "template" : "textblock",
+            "text" : "Visitors can now explore individual projects in detail, browsing through slides, video, and other media rather than being limited to a simple list of projects with a scant paragraph and a link each. A lot of my work over the previous few years was more visual in nature (particularly XR and virtual production projects) and I wanted a way to display it more prominently.",
+            "image" : {
+                "url" : "omnicrola-2002.jpg",
+                "align" : "left"
+            }
+        },
+        {
+            "template" : "textblock",
+            "text" : "This site is intentionally lightweight. There is no backend and no database, all content is delivered as statically coded pages that load JavaScript and JSON as needed in the background. This architecture was inspired by the single-page application frameworks such as Angular and React. I wanted to have a deeper understanding of how they worked at the time, and so decided to recreate a simplified version of their main functionality. This resulted in an implementation that is as minimal as possible, tailored to my portfolio's straightforward requirements.  The simplicity of this approach is a feature, not a limitation. It keeps the site fast, low-maintenance, and easy to update. It's not something I would suggest someone else build a website with, but the source is available on github if you want to look through it.",
+            "image" : {
+                "url" : "omnicrola-2002.jpg",
+                "align" : "left"
+            }
+        },
+        {
+            "template" : "textblock",
+            "text" : "This website has a very long history in internet terms, I have owned this domain since the early 2000s. It has undergone many different revisions, which you can look through in the slideshow below."
+        },
+        {
+            "template" : "slideshow",
+            "images" : [
+                {"url": "test1.jpg", "label": "2001"},
+                {"url": "test2.jpg", "label": "2002"}
+            ]
+        }
+
+    ]
+}

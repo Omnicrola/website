@@ -1,6 +1,6 @@
 .project {
     background: #EFEFEF;
-    display: flex;
+    display: block;
     flex-direction: row;
     padding: 25px;
     position: relative;
@@ -70,6 +70,16 @@
     }
 }
 
+.extended-content {
+    background: #EFEFEF;
+    display: block;
+    padding: 25px;
+    position: relative;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, .05);
+}
+
 .back-link {
     display: inline-block;
     margin-bottom: 16px;
@@ -124,7 +134,7 @@
         transition: 0.2s;
 
         &:hover {
-            background: white;
+            background-color: white;
             border-color: #b1d5f7;
         }
 
@@ -134,7 +144,7 @@
             border-color: #3a8fd8;
 
             &:hover {
-                background: white;
+                background-color: white;
                 color: #3a8fd8;
             }
         }

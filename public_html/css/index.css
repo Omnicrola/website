@@ -260,3 +260,4 @@ img.slide {
 .col-10 { width: 83.33333333333333%; display: inline-block; }
 .col-11 { width: 91.66666666666667%; display: inline-block; }
 .col-12 { width: 100%; display: inline-block; }
+.row { display:block; }

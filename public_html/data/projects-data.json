@@ -1,5 +1,16 @@
 [
   {
+    "id" : "omnicrola-dot-com",
+    "title" : "Omnicrola.com Website",
+    "updated" : "2026-02-23",
+    "screenshots": [],
+    "tags" : ["Javascript", "Website"],
+    "description" : [
+      "This website (www.omnicrola.com), the current incarnation of which is a custom-built single-page application (SPA) that has no backend."
+    ],
+    "github-link" : "https://github.com/Omnicrola/website"
+  },
+  {
     "id": "the-interior",
     "title": "The Interior",
     "updated": "2018-11-01",
