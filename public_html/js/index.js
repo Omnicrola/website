@@ -14,5 +14,5 @@ let modules = [
 ModuleLoader.loadModules(modules)
     .then(() => {
         console.log('modules loaded!');
-        return Navigation.loadStartingContent('main');
+        return Navigation.loadStartingContent('/#/main');
     });

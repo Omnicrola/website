@@ -63,7 +63,7 @@ let Navigation = ((contentTarget) => {
             _loadContent(defaultPage);
         } else {
             console.log('Loading starting content :' + currentPage)
-            _loadContent('/#/'+NavigationPath.currentPath());
+            _loadContent('/#/'+ NavigationPath.currentPath());
         }
     }
 
