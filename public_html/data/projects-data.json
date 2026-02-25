@@ -18,7 +18,11 @@
     "id" : "cosmere-explorer",
     "title" : "Cosmere Explorer",
     "updated" : "2025-12-30",
-    "screenshots": [],
+    "screenshots": [
+      "cosmere-explorer/cosmere-explorer-drominad.png",
+      "cosmere-explorer/cosmere-explorer-roshar.png",
+      "cosmere-explorer/cosmere-explorer-taldain.png"
+    ],
     "tags" : ["Javascript", "Website", "Cosmere"],
     "description" : [
       "A browser-based solar-system explorer for the fictional worlds of Brandon Sanderson's Cosmere novels."
@@ -30,7 +34,10 @@
     "id" : "the-cosmere-begins",
     "title" : "The Cosmere Begins",
     "updated" : "2024-10-27",
-    "screenshots": [],
+    "screenshots": [
+      "cosmere-begins/CosmereBegins_YT_1.jpg",
+      "cosmere-begins/CosmereBegins_YT_2.jpg"
+    ],
     "tags" : ["Unreal", "Animation", "Cosmere"],
     "description" : [
       "A parody of a parody! This is an animation made in Unreal Engine, created to go with a parody of Weird Al's 'The Saga Begins', which is itself a parody of 'American Pie' by Don McLean.",

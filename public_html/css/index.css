@@ -160,10 +160,17 @@ footer {
 
 .recent-tiles {
     grid-template-columns: repeat(3, 1fr);
+    max-height:300px;
+    overflow:hidden;
 
     @media (max-width: 500px) {
         grid-template-columns: 100%;
     }
+
+    .thumbnail {
+        display:block;
+    }
+
 }
 
 .tile {

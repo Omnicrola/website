@@ -22,8 +22,15 @@ window.module.triggers = (() => {
 
             if (p.screenshots && p.screenshots.length > 0) {
                 let img = document.createElement('img');
-                img.className = 'responsive';
-                img.src = 'images/projects/' + p.screenshots[0];
+                img.className = 'thumbnail';
+                let raw = p.screenshots[0];
+                let slashIdx = raw.lastIndexOf('/');
+                let dir = slashIdx >= 0 ? raw.substring(0, slashIdx) : '';
+                let filename = slashIdx >= 0 ? raw.substring(slashIdx + 1) : raw;
+                let baseName = filename.substring(0, filename.lastIndexOf('.'));
+                let thumbPath = (dir ? dir + '/thumbnail' : 'thumbnail') + '/' + baseName + '-thumb.jpg';
+                img.src = 'images/projects/' + thumbPath;
+                
                 link.appendChild(img);
             }
 

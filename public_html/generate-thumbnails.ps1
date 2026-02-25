@@ -8,7 +8,7 @@ param(
 
 Add-Type -AssemblyName System.Drawing
 
-$thumbnailWidth = 500
+$thumbnailWidth = 300
 $imageExtensions = @(".jpg", ".jpeg", ".png", ".gif", ".bmp", ".webp")
 
 function New-Thumbnail {

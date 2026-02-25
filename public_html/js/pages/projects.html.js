@@ -108,7 +108,7 @@ window.module.triggers = (() => {
                         let slideshowSelector = '#' + singleProjectData.id + ' .image-slideshow';
                         Slideshow.create({
                             targetSelector: slideshowSelector,
-                            transitionInterval: 3000,
+                            transitionInterval: 3000 + ((i%5)*250),
                             startDelay: Math.random() * 100
                         });
                         newSlideshowSelectors.push(slideshowSelector);
