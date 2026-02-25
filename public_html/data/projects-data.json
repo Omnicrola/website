@@ -3,7 +3,11 @@
     "id" : "omnicrola-dot-com",
     "title" : "Omnicrola.com Website",
     "updated" : "2026-02-23",
-    "screenshots": [],
+    "screenshots": [
+      "omnicrola-site/omnicrola.com_2001.png",
+      "omnicrola-site/omnicrola.com_2010.png",
+      "omnicrola-site/omnicrola.com_2017.png"
+    ],
     "tags" : ["Javascript", "Website"],
     "description" : [
       "This website (www.omnicrola.com), the current incarnation of which is a custom-built single-page application (SPA) that has no backend."

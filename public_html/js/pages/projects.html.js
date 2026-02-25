@@ -67,6 +67,16 @@ window.module.triggers = (() => {
         return new Date(p2.updated) - new Date(p1.updated);
     }
 
+    function _toThumbnailPath(screenshotPath) {
+        let slashIdx = screenshotPath.lastIndexOf('/');
+        let dir = slashIdx >= 0 ? screenshotPath.substring(0, slashIdx) : '';
+        let filename = slashIdx >= 0 ? screenshotPath.substring(slashIdx + 1) : screenshotPath;
+        let dotIdx = filename.lastIndexOf('.');
+        let baseName = dotIdx >= 0 ? filename.substring(0, dotIdx) : filename;
+        let thumbDir = dir ? dir + '/thumbnail' : 'thumbnail';
+        return thumbDir + '/' + baseName + '-thumb.jpg';
+    }
+
     function _loadProjectsFromJson() {
         let template = document.querySelector('#project-template');
         let containerNode = template.parentNode;
@@ -86,19 +96,19 @@ window.module.triggers = (() => {
                     let singleProjectData = projects[i];
                     let projectDate = new Date(singleProjectData.updated);
                     singleProjectData.updated = MONTHS[projectDate.getMonth()] + ' ' + projectDate.getFullYear();
+                    singleProjectData.screenshots = singleProjectData.screenshots.map(_toThumbnailPath);
                     Template.apply(projectElement, singleProjectData);
 
                     projectElement.dataset.tags = JSON.stringify(singleProjectData.tags || []);
 
-                    let projectId = 'project-' + singleProjectData.title.toLocaleLowerCase().replace(' ', '-');
-                    projectElement.id = projectId;
+                    projectElement.id = singleProjectData.id;
                     containerNode.appendChild(projectElement);
 
                     if (singleProjectData.screenshots.length > 1) {
-                        let slideshowSelector = '#' + projectId + ' .image-slideshow';
+                        let slideshowSelector = '#' + singleProjectData.id + ' .image-slideshow';
                         Slideshow.create({
                             targetSelector: slideshowSelector,
-                            transitionInterval: 6000,
+                            transitionInterval: 3000,
                             startDelay: Math.random() * 100
                         });
                         newSlideshowSelectors.push(slideshowSelector);

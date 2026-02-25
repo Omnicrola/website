@@ -13,7 +13,8 @@
     <div class="description col-6">
         <h3><a data-local="true" href="/#/project/id/{{id}}">{{title}}</a></h3>
         
-        <div class="updated">Updated: {{updated}}</div>
+        <div class="updated" template-optional="updated">Updated: {{updated}}</div>
+        <div class="updated" template-optional="completed">Completed: {{completed}}</div>
         <div class="tags" template-for="tags as tag">
             <div class="tag">{{tag}}</div>
         </div>

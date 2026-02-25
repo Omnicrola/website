@@ -57,14 +57,10 @@ $dirsWithImages = Get-ChildItem -Path $ProjectsPath -Recurse -File |
 foreach ($dir in $dirsWithImages) {
     $thumbDir = Join-Path $dir "thumbnail"
 
-    # Delete existing thumbnails folder if it exists
-    if (Test-Path $thumbDir) {
-        Write-Host "Removing existing thumbnails folder: $thumbDir"
-        Remove-Item -Path $thumbDir -Recurse -Force
+    if (-not (Test-Path $thumbDir)) {
+        New-Item -ItemType Directory -Path $thumbDir | Out-Null
+        Write-Host "Created: $thumbDir"
     }
-
-    New-Item -ItemType Directory -Path $thumbDir | Out-Null
-    Write-Host "Created: $thumbDir"
 
     $images = Get-ChildItem -Path $dir -File |
         Where-Object { $imageExtensions -contains $_.Extension.ToLower() }
@@ -72,6 +68,11 @@ foreach ($dir in $dirsWithImages) {
     foreach ($img in $images) {
         $baseName = [System.IO.Path]::GetFileNameWithoutExtension($img.Name)
         $destFile = Join-Path $thumbDir "$baseName-thumb.jpg"
+
+        if (Test-Path $destFile) {
+            Write-Host "  Skipping (already exists): $baseName-thumb.jpg"
+            continue
+        }
 
         Write-Host "  Generating thumbnail: $($img.Name) -> $baseName-thumb.jpg"
         New-Thumbnail -SourcePath $img.FullName -DestPath $destFile -Width $thumbnailWidth
