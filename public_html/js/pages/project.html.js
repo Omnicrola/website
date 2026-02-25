@@ -13,20 +13,13 @@ window.module.triggers = (() => {
             return;
         }
 
-        let projectDate = new Date(projectData.updated);
-        projectData.updated = MONTHS[projectDate.getMonth()] + ' ' + projectDate.getFullYear();
+        let projectUpdatedDate = new Date(projectData.updated);
+        projectData.updated = MONTHS[projectUpdatedDate.getMonth()] + ' ' + projectUpdatedDate.getFullYear();
+
+        let projectCompletedDate = new Date(projectData.completed);
+        projectData.completed = MONTHS[projectCompletedDate.getMonth()] + ' ' + projectCompletedDate.getFullYear();
 
         Template.apply(projectElement, projectData);
-
-        if (!projectData['play-link']) {
-            let playLink = projectElement.querySelector('.play');
-            if (playLink) playLink.parentNode.removeChild(playLink);
-        }
-
-        if (!projectData['youtube-link']) {
-            let youtubeLink = projectElement.querySelector('.youtube');
-            if (youtubeLink) youtubeLink.parentNode.removeChild(youtubeLink);
-        }
 
         let slideDisplaySelector = '.image-slideshow';
         if (projectData.screenshots.length > 1) {
@@ -41,7 +34,8 @@ window.module.triggers = (() => {
     }
 
     function _renderBlock(blockData) {
-        let templateSelector = `[template=${blockData.template}]`;
+        let templateName = blockData.template ?? 'textblock';
+        let templateSelector = `[template=${templateName}]`;
         let templateBlock = document.querySelector(templateSelector);
         if(!templateBlock) {
             console.error('No template found for : ' + blockData.template);

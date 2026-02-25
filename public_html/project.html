@@ -8,7 +8,8 @@
     <div class="description col-6">
         <h3><a data-local="true" href="/#/project/id/{{id}}">{{title}}</a></h3>
         
-        <div class="updated">Updated: {{updated}}</div>
+        <div class="updated" template-optional="updated">Updated: {{updated}}</div>
+        <div class="updated" template-optional="completed">Completed: {{completed}}</div>
         <div class="tags" template-for="tags as tag">
             <div class="tag">{{tag}}</div>
         </div>
@@ -16,22 +17,17 @@
     </div>
     <div class="col-1">
         <ul class="project-links">
-            <li class="icon-link">
-                <a data-local="true" href="/#/project/id/{{id}}">
-                    <img src="images/icons/icon-search.png"/>
-                </a>
-            </li>
-            <li class="icon-link play-link">
+            <li class="icon-link play-link" template-optional="play-link">
                 <a href="{{play-link}}">
                     <img src="images/icons/icon-play.png"/>
                 </a>
             </li>
-            <li class="icon-link github-link">
+            <li class="icon-link github-link" template-optional="github-link">
                 <a href="{{github-link}}">
                     <img src="images/icons/icon-github-octocat.png"/>
                 </a>
             </li>
-            <li class="icon-link youtube-link">
+            <li class="icon-link youtube-link" template-optional="youtube-link">
                 <a href="{{youtube-link}}">
                     <img src="images/icons/icon-youtube.png"/>
                 </a>

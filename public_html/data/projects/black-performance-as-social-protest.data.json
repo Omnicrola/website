@@ -1,0 +1,21 @@
+{
+    "id" : "black-performance-as-social-protest",
+    "blocks": [
+        { "template" : "textblock", "text" : "This project gave me the opportunity to learn and develop an entirely new skillset centered around creating content to run inside the Unreal Engine and streaming it to an LED volume. Over the course of this project I was able to leverage my experience developing games to optimize content for real-time rendering using geometry instancing, lighting and shader optimizations, as well as being strategic about what assets were used for which shots and what was visible within the frame. I learned a lot about when to compromise from what is more physically “accurate” and instead focus on what actually looks best when viewed through the lens of the film camera. I have been able to use many of the things I learned on this project on other VP projects and I look forward to finding other opportunities to improve the workflows we established for this project." },
+        { "template" : "textblock", "text" : "I feel incredibly honored and privileged to have been able to participate in this production, and I consider it one of the best projects I have ever had the opportunity to contribute to. Everyone who worked on this production was incredibly passionate and focused on honoring the history behind this project, and I consider myself lucky to have worked with them." },
+        { "template" : "textblock", "text" : "A huge thank you goes out to my fellow XR team members for all their work. Ray Majewski was our lead environment artist and spent endless hours focused on recreating each of the scenes in meticulous and well-researched detail, down to the bolts on the Edmund Pettus Bridge. Moeezo Saleem spent several grueling weeks disassembling, reassembling, and optimizing all the background characters so that they would run at a high enough framerate when rendered in real-time on the LED volume." },
+        {
+            "template" : "slideshow",
+            "images" : [
+                {"url": "bpsp/bpsp-bridge-bts-01.jpg", "label": "Walking tests on the Edmund Petus Bridge"},
+                {"url": "bpsp/bpsp-bridge-bts-02.jpg", "label": "Testing crowd shots on the Edmund Petus Bridge"},
+                {"url": "bpsp/bpsp-bridge-stillframe.jpg", "label": "A still from the final video of the Edmund Petus Bridge"},
+                {"url": "bpsp/bpsp-church-bts-01.jpg", "label": "BTS in the 1960s era church"},
+                {"url": "bpsp/bpsp-controlroom.jpg", "label": "Adjusting the digital lighting and character positions in the church scene"},
+                {"url": "bpsp/bpsp-crew-group.jpg", "label": "The cast and crew! (I was not on set for the final day when this photo was taken)"},
+                {"url": "bpsp/bpsp-fields-bts-01.jpg", "label": "A walking shot with the digital tabacco field in the background"}
+            ]
+        }
+
+    ]
+}

@@ -35,6 +35,25 @@
     "youtube-link" : "https://www.youtube.com/watch?v=Z9qc-OXMfWo"
   },
   {
+    "id" : "black-performance-as-social-protest",
+    "title" : "Black Performance as Social Protest",
+    "completed" : "2025-01-29",
+    "screenshots": [
+      "bpsp/bpsp-bridge-bts-01.jpg",
+      "bpsp/bpsp-bridge-bts-02.jpg",
+      "bpsp/bpsp-bridge-stillframe.jpg",
+      "bpsp/bpsp-church-bts-01.jpg",
+      "bpsp/bpsp-controlroom.jpg",
+      "bpsp/bpsp-crew-group.jpg",
+      "bpsp/bpsp-fields-bts-01.jpg"
+    ],
+    "tags" : ["Unreal", "Virtual Production", "Animation"],
+    "description" : [
+        "The first major Virtual Production shoot we did on the LED volume at the Center for Academic Innovation was entitled “Black Performance as Social Protest”, a powerful collaboration with Georgetown University’s CNDLS and the Racial Justice Institute. Directed by Anita Gonzalez the production explores themes of collective resilience through song and spoken word as tools of resistance in the ongoing fight for equity and justice. Featuring compelling performances from vocal students at the University of Michigan SMTD, this project was a profound and inspiring piece of art, activism, and immersive storytelling."
+    ],
+    "youtube-link" : "https://youtu.be/k1N-znrIUdA"
+  },
+  {
     "id": "the-interior",
     "title": "The Interior",
     "updated": "2018-11-01",

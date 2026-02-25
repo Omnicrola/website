@@ -19,6 +19,15 @@ let Template = (() => {
         }
     }
 
+    function _handleOptional(node, data) {
+        node.querySelectorAll('[template-optional]').forEach(el => {
+            let prop = el.getAttribute('template-optional');
+            if (!data[prop]) {
+                el.remove();
+            }
+        });
+    }
+
     function _apply(node, data) {
         let properties = Object.getOwnPropertyNames(data);
         let innerHtml = node.innerHTML;
@@ -28,6 +37,7 @@ let Template = (() => {
             innerHtml = innerHtml.replace(new RegExp(`\\{\\{${prop}\\}\\}`, 'g'), value);
         }
         node.innerHTML = innerHtml;
+        _handleOptional(node, data);
         _handleRepeating(node, data);
     }
 

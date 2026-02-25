@@ -90,10 +90,6 @@ window.module.triggers = (() => {
 
                     projectElement.dataset.tags = JSON.stringify(singleProjectData.tags || []);
 
-                    _removeUnusedLinkByProperty(singleProjectData, projectElement, 'play-link', '.play-link');
-                    _removeUnusedLinkByProperty(singleProjectData, projectElement, 'youtube-link', '.youtube-link');
-                    _removeUnusedLinkByProperty(singleProjectData, projectElement, 'github-link', '.github-link');
-
                     let projectId = 'project-' + singleProjectData.title.toLocaleLowerCase().replace(' ', '-');
                     projectElement.id = projectId;
                     containerNode.appendChild(projectElement);
@@ -112,15 +108,6 @@ window.module.triggers = (() => {
                 _updateProjectCount();
                 return newSlideshowSelectors;
             });
-    }
-
-    function _removeUnusedLinkByProperty(projectData, targetElement, projectPropertyName, className) {
-        if(!projectData[projectPropertyName]) {
-            let childElement = targetElement.querySelector(className);
-            if(childElement) {
-                childElement.parentNode.removeChild(childElement);
-            }
-        }
     }
 
     function _onLoad() {
