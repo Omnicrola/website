@@ -28,5 +28,6 @@ $ss_stmt = $pdo->prepare(
 );
 $ss_stmt->execute([$id]);
 $row['screenshots'] = $ss_stmt->fetchAll(PDO::FETCH_ASSOC);
+$row['description_long'] = array_values(array_filter(preg_split('/\r\n|\r|\n/', $row['description_long'])));
 
 echo json_encode($row);

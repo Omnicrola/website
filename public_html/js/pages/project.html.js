@@ -4,14 +4,8 @@ window.module.triggers = (() => {
 
     let slideshowSelectors = [];
 
-    function _renderMainBlock(projectElement, json, projectId) {
-        let projects = JSON.parse(json);
-        let projectData = projects.find(p => p.id === projectId);
-
-        if (!projectData) {
-            projectElement.innerHTML = '<p>Project not found.</p>';
-            return;
-        }
+    function _renderMainBlock(projectElement, projectData) {
+        projectData.tags = projectData.tags ? projectData.tags.split(',').map(t => t.trim()) : [];
 
         let projectUpdatedDate = new Date(projectData.updated);
         projectData.updated = MONTHS[projectUpdatedDate.getMonth()] + ' ' + projectUpdatedDate.getFullYear();
@@ -33,22 +27,8 @@ window.module.triggers = (() => {
 
     }
 
-    function _renderBlock(blockData) {
-        let templateName = blockData.template ?? 'textblock';
-        let templateSelector = `[template=${templateName}]`;
-        let templateBlock = document.querySelector(templateSelector);
-        if(!templateBlock) {
-            console.error('No template found for : ' + blockData.template);
-            return;
-        }
-        let newBlock = templateBlock.cloneNode(true);
-        newBlock.removeAttribute('template');
-        Template.apply(newBlock, blockData);
-        return newBlock;
-    }
-
     function _onLoad() {
-        let projectId = NavigationPath.getValue('id');
+        let projectId = NavigationPath.getValue('project');
         let projectElement = document.querySelector('#project-template');
 
         if (!projectId) {
@@ -56,9 +36,9 @@ window.module.triggers = (() => {
             return;
         }
 
-        Ajax.get('data/projects-data.json')
+        Ajax.get('api/project.php?id=' + projectId)
             .then(jsonData => {
-                _renderMainBlock(projectElement, jsonData, projectId);
+                _renderMainBlock(projectElement, JSON.parse(jsonData));
             })
             .then(() => {
                 return Ajax.get('data/projects/' + projectId + '.data.json');

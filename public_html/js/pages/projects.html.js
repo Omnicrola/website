@@ -82,9 +82,13 @@ window.module.triggers = (() => {
         let containerNode = template.parentNode;
         containerNode.removeChild(template);
 
-        return Ajax.get('data/projects-data.json')
+        return Ajax.get('api/projects.php')
             .then(json => {
                 let projects = JSON.parse(json);
+                projects.forEach(p => {
+                    p.tags = p.tags ? p.tags.split(',').map(t => t.trim()) : [];
+                    p.screenshots = p.screenshots || [];
+                });
                 projects = projects.sort(_byProjectUpdated);
 
                 let tagCounts = _extractTagCounts(projects);
