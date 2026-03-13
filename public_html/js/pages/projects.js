@@ -69,15 +69,6 @@ function _byProjectUpdated(p1, p2) {
     return new Date(p2.updated) - new Date(p1.updated);
 }
 
-function _toThumbnailPath(screenshotPath) {
-    let slashIdx = screenshotPath.lastIndexOf('/');
-    let dir = slashIdx >= 0 ? screenshotPath.substring(0, slashIdx) : '';
-    let filename = slashIdx >= 0 ? screenshotPath.substring(slashIdx + 1) : screenshotPath;
-    let dotIdx = filename.lastIndexOf('.');
-    let baseName = dotIdx >= 0 ? filename.substring(0, dotIdx) : filename;
-    let thumbDir = dir ? dir + '/thumbnail' : 'thumbnail';
-    return thumbDir + '/' + baseName + '-thumb.jpg';
-}
 
 let template = document.querySelector('#project-template');
 let containerNode = template.parentNode;
@@ -100,7 +91,7 @@ Ajax.get('api/projects.php')
             let singleProjectData = projects[i];
             let projectDate = new Date(singleProjectData.updated);
             singleProjectData.updated = MONTHS[projectDate.getMonth()] + ' ' + projectDate.getFullYear();
-            singleProjectData.screenshots = singleProjectData.screenshots.map(_toThumbnailPath);
+
             Template.apply(projectElement, singleProjectData);
 
             projectElement.dataset.tags = JSON.stringify(singleProjectData.tags || []);

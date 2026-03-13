@@ -29,11 +29,16 @@ if (!$row) {
     exit;
 }
 
+require_once __DIR__ . '/utilities.php';
+
 $ss_stmt = $pdo->prepare(
     'SELECT ss_id, url, label FROM screenshots WHERE project_id = ?'
 );
 $ss_stmt->execute([$row['id']]);
-$row['screenshots'] = $ss_stmt->fetchAll(PDO::FETCH_ASSOC);
+$screenshots = $ss_stmt->fetchAll(PDO::FETCH_ASSOC);
+$row['screenshots'] = array_map(fn($ss) => array_merge($ss, [
+    'thumbnail_url' => thumbnailUrl($ss['url'])
+]), $screenshots);
 $row['description_long'] = array_values(array_filter(preg_split('/\r\n|\r|\n/', $row['description_long'])));
 
 echo json_encode($row);
