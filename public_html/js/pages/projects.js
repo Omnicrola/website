@@ -1,6 +1,7 @@
 import { Ajax } from '../modules/Ajax.js';
 import { Slideshow } from '../modules/Slideshow.js';
 import { Template } from '../modules/Template.js';
+import { Lightbox } from '../modules/Lightbox.js';
 
 const MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 
@@ -98,12 +99,16 @@ Ajax.get('api/projects.php')
             projectElement.id = singleProjectData.slug;
             containerNode.appendChild(projectElement);
 
-            if (singleProjectData.screenshots.length > 1) {
+            if (singleProjectData.screenshots.length >= 1) {
                 let slideshowSelector = '#' + singleProjectData.slug + ' .image-slideshow';
                 Slideshow.create({
                     targetSelector: slideshowSelector,
                     transitionInterval: 3000 + ((i % 5) * 250),
-                    startDelay: Math.random() * 100
+                    startDelay: Math.random() * 100,
+                    onSlideClick: (idx, slides) => {
+                        let images = slides.map(img => ({ url: img.dataset.fullUrl, label: img.dataset.label || '' }));
+                        Lightbox.open(images, idx);
+                    }
                 });
                 slideshowSelectors.push(slideshowSelector);
             }

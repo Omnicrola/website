@@ -32,6 +32,14 @@ export const Slideshow = (() => {
         slideshowElement.slideshow = newSlideshow;
         _initSlideshow(config, slideshowElement);
 
+        if (config.onSlideClick) {
+            let slides = Array.from(slideshowElement.querySelectorAll('img.slide'));
+            slides.forEach((img, idx) => {
+                img.style.cursor = 'pointer';
+                img.addEventListener('click', () => config.onSlideClick(idx, slides));
+            });
+        }
+
         if (config.autoAdvance) {
             setTimeout(() => {
                 slideshowElement.slideshow.start();

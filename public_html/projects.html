@@ -32,7 +32,7 @@
             </div>
             <div class="project" id="project-template">
                 <div class="project-screenshot image-slideshow bg-black col-4" template-optional="screenshots" template-for="screenshots as screenshot">
-                    <img class="responsive slide" src="images/projects/{{screenshot.thumbnail_url}}"/>
+                    <img class="responsive slide" src="images/projects/{{screenshot.thumbnail_url}}" data-full-url="images/projects/{{screenshot.url}}" data-label="{{screenshot.label}}"/>
                 </div>
                 <div class="description col-6">
                     <h3><a href="project.html?id={{slug}}">{{name}}</a></h3>
