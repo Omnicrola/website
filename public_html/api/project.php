@@ -32,7 +32,7 @@ if (!$row) {
 require_once __DIR__ . '/utilities.php';
 
 $ss_stmt = $pdo->prepare(
-    'SELECT ss_id, url, label FROM screenshots WHERE project_id = ?'
+    'SELECT ss_id, url, label FROM screenshots WHERE project_id = ? ORDER BY sort_order'
 );
 $ss_stmt->execute([$row['id']]);
 $screenshots = $ss_stmt->fetchAll(PDO::FETCH_ASSOC);

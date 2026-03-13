@@ -11,7 +11,7 @@ $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
 require_once __DIR__ . '/utilities.php';
 
 $ss_stmt = $pdo->prepare(
-    'SELECT url, label FROM screenshots WHERE project_id = ? ORDER BY ss_id LIMIT 3'
+    'SELECT url, label FROM screenshots WHERE project_id = ? ORDER BY sort_order LIMIT 3'
 );
 
 foreach ($rows as &$row) {

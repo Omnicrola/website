@@ -1,6 +1,8 @@
 # generate-thumbnails.ps1
 # Scans all images in /images/projects and creates 500px-wide thumbnails
 # in a "thumbnails" subfolder within each directory containing images.
+# Also converts any HEIC images to JPG in-place (original HEIC is kept).
+# HEIC conversion requires ImageMagick (magick) to be installed.
 
 param(
     [string]$ProjectsPath = "$PSScriptRoot\images\projects"
@@ -8,8 +10,27 @@ param(
 
 Add-Type -AssemblyName System.Drawing
 
+$magickAvailable = $null -ne (Get-Command magick -ErrorAction SilentlyContinue)
+
 $thumbnailWidth = 300
 $imageExtensions = @(".jpg", ".jpeg", ".png", ".gif", ".bmp", ".webp")
+
+function Convert-HeicToJpg {
+    param([string]$SourcePath)
+
+    $destPath = [System.IO.Path]::ChangeExtension($SourcePath, ".jpg")
+
+    if (Test-Path $destPath) {
+        Write-Host "  Skipping HEIC (JPG already exists): $(Split-Path $SourcePath -Leaf)"
+        return
+    }
+
+    Write-Host "  Converting HEIC: $(Split-Path $SourcePath -Leaf) -> $(Split-Path $destPath -Leaf)"
+    & magick $SourcePath $destPath
+    if ($LASTEXITCODE -ne 0) {
+        Write-Warning "  Failed to convert: $SourcePath"
+    }
+}
 
 function New-Thumbnail {
     param(
@@ -47,6 +68,21 @@ function New-Thumbnail {
     } finally {
         $image.Dispose()
     }
+}
+
+# Convert HEIC images to JPG (requires ImageMagick)
+if ($magickAvailable) {
+    $heicFiles = Get-ChildItem -Path $ProjectsPath -Recurse -File |
+        Where-Object { $_.Extension.ToLower() -eq ".heic" -and $_.DirectoryName -notmatch '\\thumbnail(\\|$)' }
+
+    if ($heicFiles) {
+        Write-Host "`nConverting HEIC images..."
+        foreach ($heic in $heicFiles) {
+            Convert-HeicToJpg -SourcePath $heic.FullName
+        }
+    }
+} else {
+    Write-Warning "ImageMagick (magick) not found - skipping HEIC conversion. Install from https://imagemagick.org"
 }
 
 # Collect all directories that contain image files (including the root projects dir)
