@@ -1,4 +1,4 @@
-let Slideshow = (() => {
+export const Slideshow = (() => {
 
     let defaultConfig = {
         transitionInterval: 1000,

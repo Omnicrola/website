@@ -1,48 +1,78 @@
-<link rel="stylesheet" href="css/projects.css">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Projects | Omnicrola.com</title>
+    <link href="https://fonts.googleapis.com/css?family=Signika" rel="stylesheet">
+    <script src="https://use.fontawesome.com/23720f2c9e.js"></script>
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/projects.css">
+</head>
+<body>
+<div id="app">
+    <div id="content-wrapper">
+        <header>
+            <div class="header-center">
+                <h1 class="title"><a href="/">Omnicrola.com</a></h1>
+                <div id="menu">
+                    <ul>
+                        <li><a class="red" href="index.html">Home</a></li>
+                        <li><a class="green" href="projects.html">Projects</a></li>
+                    </ul>
+                </div>
+            </div>
+        </header>
 
-<h2>Projects</h2>
-<div id="tag-filter">
-    <span class="tag-filter-label">Filter by tag:</span>
-    <div id="tag-filter-buttons"></div>
-    <div id="project-count"></div>
-</div>
-<div class="project" id="project-template">
-    <div class="project-screenshot image-slideshow bg-black col-4" template-for="screenshots as screenshot">
-        <img class="responsive slide" src="images/projects/{{screenshot}}"/>
-    </div>
-    <div class="description col-6">
-        <h3><a data-local="true" href="/#/project/{{slug}}">{{title}}</a></h3>
-        
-        <div class="updated" template-optional="updated">Updated: {{updated}}</div>
-        <div class="updated" template-optional="completed">Completed: {{completed}}</div>
-        <div class="tags" template-for="tags as tag">
-            <div class="tag">{{tag}}</div>
+        <div id="content">
+            <h2>Projects</h2>
+            <div id="tag-filter">
+                <span class="tag-filter-label">Filter by tag:</span>
+                <div id="tag-filter-buttons"></div>
+                <div id="project-count"></div>
+            </div>
+            <div class="project" id="project-template">
+                <div class="project-screenshot image-slideshow bg-black col-4" template-optional="screenshots" template-for="screenshots as screenshot">
+                    <img class="responsive slide" src="images/projects/{{screenshot}}"/>
+                </div>
+                <div class="description col-6">
+                    <h3><a href="project.html?id={{slug}}">{{name}}</a></h3>
+
+                    <div class="updated">{{status}}: {{updated}}</div>
+                    <div class="tags" template-for="tags as tag">
+                        <div class="tag">{{tag}}</div>
+                    </div>
+                    <div><p>{{description_short}}</p></div>
+                </div>
+                <div class="col-1 project-links">
+                    <ul>
+                        <li class="icon-link">
+                            <a href="project.html?id={{slug}}">
+                                <img src="images/icons/icon-search.png"/>
+                            </a>
+                        </li>
+                        <li class="icon-link play-link" template-optional="play_link">
+                            <a href="{{play_link}}">
+                                <img src="images/icons/icon-play.png"/>
+                            </a>
+                        </li>
+                        <li class="icon-link github-link" template-optional="github_link">
+                            <a href="{{github_link}}">
+                                <img src="images/icons/icon-github-octocat.png"/>
+                            </a>
+                        </li>
+                        <li class="icon-link youtube-link" template-optional="youtube_link">
+                            <a href="{{youtube_link}}">
+                                <img src="images/icons/icon-youtube.png"/>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
         </div>
-        <div template-for="description as paragraph"><p>{{paragraph}}</p></div>
-    </div>
-    <div class="col-1">
-        <ul class="project-links">
-            <li class="icon-link">
-                <a data-local="true" href="/#/project/{{id}}">
-                    <img src="images/icons/icon-search.png"/>
-                </a>
-            </li>
-            <li class="icon-link play-link" template-optional="play-link">
-                <a href="{{play-link}}">
-                    <img src="images/icons/icon-play.png"/>
-                </a>
-            </li>
-            <li class="icon-link github-link" template-optional="github-link">
-                <a href="{{github-link}}">
-                    <img src="images/icons/icon-github-octocat.png"/>
-                </a>
-            </li>
-            <li class="icon-link youtube-link" template-optional="youtube-link">
-                <a href="{{youtube-link}}">
-                    <img src="images/icons/icon-youtube.png"/>
-                </a>
-            </li>
-        </ul>
+
+        <footer>&copy; 2026 Eric Schreffler | Website source <a href="https://github.com/Omnicrola/website">available on GitHub</a></footer>
     </div>
 </div>
-
+<script type="module" src="js/pages/projects.js"></script>
+</body>
+</html>

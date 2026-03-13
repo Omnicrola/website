@@ -8,30 +8,41 @@
     <link rel="stylesheet" href="css/index.css">
 </head>
 <body>
-<div id="app" class="loading">
+<div id="app">
     <div id="content-wrapper">
         <header>
             <div class="header-center">
                 <h1 class="title"><a href="/">Omnicrola.com</a></h1>
                 <div id="menu">
                     <ul>
-                        <li><a class="red" data-local="true" href="/#/main">Home</a></li>
-                        <li><a class="green" data-local="true" href="/#/projects">Projects</a></li>
+                        <li><a class="red" href="index.html">Home</a></li>
+                        <li><a class="green" href="projects.html">Projects</a></li>
                     </ul>
                 </div>
             </div>
         </header>
 
         <div id="content">
-
+            <div class="text-paragraph">
+                <div class="tile blue tile-float-right">
+                    <a href="projects.html">
+                        <div class="tile-title">All Projects</div>
+                        <div id="slides-projects" class="image-slideshow tile-image">
+                        </div>
+                    </a>
+                </div>
+                <h2>Welcome</h2>
+                <p>I am a developer and artist who remembers when the internet was mostly GeoCities pages and MIDI files, who has spent his career learning new technologies and building some things that matter and some things that are just fun. </p>
+                <p>I am part software craftsman, part mentor, part 3D animator, and part wizard and I've spent two decades leveling up across industries from 3D animation to virtual reality to fabricating cosplay armor.</p>
+                <p>Here you will find a collection of both personal and professional projects. They span a wide range of technologies and mediums, and were created for a equally diverse set of purposes. Some are small experiments, some are things that will never be finished, and some are even complete!</p>
+            </div>
+            <h2>Recent Projects</h2>
+            <div id="recent-project-tiles" class="project-tiles recent-tiles"></div>
         </div>
-        <footer>&copy; 2026 Eric Schreffler | Website source <a href="https://github.com/Omnicrola/website">available on
-            GitHub</a></footer>
+
+        <footer>&copy; 2026 Eric Schreffler | Website source <a href="https://github.com/Omnicrola/website">available on GitHub</a></footer>
     </div>
 </div>
-<div id="scripts">
-    <script src="js/modules/AsyncLoader.js"></script>
-    <script src="js/index.js"></script>
-</div>
+<script type="module" src="js/pages/main.js"></script>
 </body>
 </html>
