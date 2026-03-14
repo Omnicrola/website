@@ -140,9 +140,6 @@ export const Lightbox = (() => {
         _captionEl = _overlay.querySelector('#lightbox-caption');
         _loadingEl = _overlay.querySelector('#lightbox-loading');
 
-        _overlay.addEventListener('click', (e) => {
-            if (e.target === _overlay) _close();
-        });
         _overlay.querySelector('#lightbox-close').addEventListener('click', _close);
         _overlay.querySelector('#lightbox-prev').addEventListener('click', () => _show(_currentIndex - 1));
         _overlay.querySelector('#lightbox-next').addEventListener('click', () => _show(_currentIndex + 1));
