@@ -160,8 +160,6 @@ footer {
 
 .recent-tiles {
     grid-template-columns: repeat(3, 1fr);
-    max-height:300px;
-    overflow:hidden;
 
     @media (max-width: 500px) {
         grid-template-columns: 100%;
@@ -169,6 +167,9 @@ footer {
 
     .thumbnail {
         display:block;
+        background: #333;
+        padding: 5px;
+        border-radius: 5px;
     }
 
 }
@@ -183,6 +184,7 @@ footer {
     transition: 500ms;
     overflow: hidden;
     box-shadow: rgba(0, 0, 0, .25) 0 0 10px;
+    height: fit-content;
 
     &:hover {
         transition: 500ms;
