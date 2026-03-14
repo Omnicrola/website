@@ -112,6 +112,7 @@ export const Lightbox = (() => {
     let _imgEls = [];
     let _imageData = [];
     let _currentIndex = 0;
+    let _loadedIndices = new Set();
 
     function _injectStyles() {
         let style = document.createElement('style');
@@ -159,12 +160,23 @@ export const Lightbox = (() => {
         return parts[parts.length - 1];
     }
 
+    function _loadWindow(centerIndex) {
+        [-1, 0, 1].forEach(offset => {
+            let i = (centerIndex + offset + _imgEls.length) % _imgEls.length;
+            if (!_loadedIndices.has(i)) {
+                _loadedIndices.add(i);
+                _imgEls[i].src = _imageData[i].url;
+            }
+        });
+    }
+
     function _show(index) {
         _currentIndex = (index + _imgEls.length) % _imgEls.length;
         _imgEls.forEach((img, i) => {
             img.classList.toggle('lightbox-active', i === _currentIndex);
         });
         _captionEl.textContent = _labelFor(_imageData[_currentIndex]);
+        _loadWindow(_currentIndex);
 
         let single = _imgEls.length <= 1;
         _overlay.querySelector('#lightbox-prev').style.display = single ? 'none' : '';
@@ -178,9 +190,9 @@ export const Lightbox = (() => {
         _imagesContainer.innerHTML = '';
         _imagesContainer.appendChild(_loadingEl);
 
+        _loadedIndices = new Set();
         _imgEls = images.map(image => {
             let img = document.createElement('img');
-            img.src = image.url;
             img.alt = image.label || '';
             _imagesContainer.appendChild(img);
             return img;
@@ -194,6 +206,8 @@ export const Lightbox = (() => {
     function _close() {
         if (_overlay) _overlay.classList.remove('open');
         document.removeEventListener('keydown', _onKeydown);
+        _imgEls.forEach(img => img.removeAttribute('src'));
+        _loadedIndices = new Set();
     }
 
     return {
